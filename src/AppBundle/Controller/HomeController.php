@@ -41,6 +41,11 @@ class HomeController extends Controller
     public function showParamAction($slug)
     {
 
+        $funFact = "pouet test essai *markdown bundle* par knplabs";
+
+        $funFact = $this->get('markdown.parser')
+            ->transform($funFact);
+
         $notes = [
             'Pouet info',
             'test bla bla',
@@ -49,7 +54,8 @@ class HomeController extends Controller
 
         return $this->render('home/show.html.twig', [
             'slug'=> $slug,
-            'notes'=> $notes
+            'notes'=> $notes,
+            'funFact' => $funFact,
         ]);
     }
 
