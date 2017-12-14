@@ -8,12 +8,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
-class HomeController extends Controller
+class TestController extends Controller
 {
     /**
-     * @Route("/home")
+     * @Route("/test")
      */
-    public function homeAction()
+    public function testAction()
     {
         return new Response("Première réponse");
     }
@@ -55,6 +55,23 @@ class HomeController extends Controller
 
 
     /**
+     * @Route("/test/list")
+     * Test listing
+     */
+    public function listAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $listMessages = $em->getRepository('AppBundle:Post')
+            ->findAll();
+
+        return $this->render('test/list.html.twig', [
+            'listMessages' => $listMessages
+        ]);
+    }
+
+
+    /**
      * @Route("/test/{slug}")
      */
     public function showParamAction($slug)
@@ -83,7 +100,7 @@ class HomeController extends Controller
             'pouet pouet pouet pouet'
         ];
 
-        return $this->render('home/show.html.twig', [
+        return $this->render('test/show.html.twig', [
             'slug'=> $slug,
             'notes'=> $notes,
             'funFact' => $funFact,

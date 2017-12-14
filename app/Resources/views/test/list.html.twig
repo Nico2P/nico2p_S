@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    {% for message in listMessages %}
+        <div>
+            <p> {{ message.date | date('d/m/Y') }} - {{ message.author }} a dis :</p>
+            <p>{{ message.content }}</p>
+        </div>
+    {% endfor %}
+
+{% endblock %}
