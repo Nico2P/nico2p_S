@@ -28,6 +28,7 @@ class Post
      */
     private $author;
 
+
     /**
      * @ORM\Column(type="text")
      */
@@ -77,6 +78,7 @@ class Post
     {
         $this->author = $author;
     }
+
 
     /**
      * @return mixed

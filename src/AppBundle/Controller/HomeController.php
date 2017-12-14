@@ -42,6 +42,7 @@ class HomeController extends Controller
     public function newAction()
     {
         $post = new Post();
+        $post->setDate(new \DateTime('now'));
         $post->setAuthor('Pouetotor');
         $post->setContent('Pouet contenu de test pouet'.rand(1,100));
 
