@@ -43,25 +43,24 @@ class TestController extends Controller
     {
         $post = new Post();
         $post->setDate(new \DateTime('now'));
-        $post->setAuthor('Pouetotor');
+        $post->setAuthor('Pouetotor'.rand(1,100));
         $post->setContent('Pouet contenu de test pouet'.rand(1,100));
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($post);
         $em->flush();
 
-        return new Response("<html><body>post crée</body>></html>");
+        return new Response("<html><body>post crée en bdd</body></html>");
     }
 
 
     /**
-     * @Route("/test/list")
+     * @Route("/test/list" , name="test_list")
      * Test listing
      */
     public function listAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $listMessages = $em->getRepository('AppBundle:Post')
             ->findAll();
 
@@ -69,6 +68,7 @@ class TestController extends Controller
             'listMessages' => $listMessages
         ]);
     }
+
 
 
     /**
@@ -106,6 +106,9 @@ class TestController extends Controller
             'funFact' => $funFact,
         ]);
     }
+
+
+
 
 
     /**

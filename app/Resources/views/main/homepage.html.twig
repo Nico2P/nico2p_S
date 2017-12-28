@@ -1,5 +1,51 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-        <h1 class="page-header text-center titre">Bienvenue sur l'acceuil !</h1>
+    <div class="container">
+        <div class="row">
+            <div class="jumbotron">
+                <h1 class="display-3">Nico2p</h1>
+                <p class="lead"> Développeur web</p>
+                <div id="btn_jumbotron"><a class="btn btn-lg btn-success" href="#" role="button">Plus d'informations</a>
+                    <a class="btn btn-lg btn-success" href="#" role="button">Projets</a>
+                    <a class="btn btn-lg btn-success" href="#" role="button">CV</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <p>Nec sane haec sola pernicies orientem diversis cladibus adfligebat. Namque et Isauri,
+                quibus est usitatum saepe pacari saepeque inopinis excursibus cuncta miscere, ex latrociniis occultis et raris,
+                alente inpunitate adulescentem in peius audaciam ad bella gravia
+                proruperunt, diu quidem perduelles spiritus inrequietis motibus erigentes, hac tamen indignitate
+                perciti vehementer, ut iactitabant, quod eorum capiti quidam consortes apud
+                Iconium Pisidiae oppidum in amphitheatrali spectaculo feris praedatricibus obiecti sunt praeter morem.
+            </p>
+        </div>
+        <div class="row">
+            <div class="container">
+                    <img src="{{ asset('images/dev.png') }}" alt="imagedev">
+                <div class="bulle">
+                    <a><img id="cube" src="{{ asset('images/cube.jpg') }}" alt="cube"></a>
+                    <p class="cache"> < 1min</p>
+                </div>
+                <div class="bulle">
+                    <a><img id="chess" src="{{ asset('images/chess.png') }}" alt="chess"></a>
+                    <p class="cache"> Joueur d'echecs</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 
 {% endblock %}
+
+    {% block javascripts %}
+        <script src="{{ asset('js/jquery-3.2.1.slim.min.js') }}"></script>
+        <script src="{{ asset('js/script.js') }}"></script>
+    {% endblock %}
+

@@ -6,8 +6,8 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
 
         {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('css/styles.css') }}">   {# asset point sur web/ #}
-            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">   {# asset point sur web/ #}
+            <link rel="stylesheet" href="{{ asset('css/styles.css') }}">   {# asset pointe sur web/ #}
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -22,16 +22,16 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">CV</a>
+                    <a class="nav-link" href="/cv">CV</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Projet</a>
+                    <a class="nav-link" href="/projects">Projets</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="/contact">Contact</a>
                 </li>
             </ul>
         </div>
@@ -45,6 +45,11 @@
 
     {% endblock %}
 
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">@Nico2p 2018</span>
+        </div>
+    </footer>
 
 
     {% block javascripts %}{% endblock %}
