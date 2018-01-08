@@ -3,11 +3,16 @@
     <div class="container">
         <div class="row">
             <div class="jumbotron">
-                <h1 class="display-3">Nico2p</h1>
-                <p class="lead"> Développeur web</p>
-                <div id="btn_jumbotron"><a class="btn btn-lg btn-success" href="#" role="button">Plus d'informations</a>
-                    <a class="btn btn-lg btn-success" href="#" role="button">Projets</a>
-                    <a class="btn btn-lg btn-success" href="#" role="button">CV</a>
+                <div id="text-hoverboard">
+                    <h1 class="display-3">Nico2p</h1>
+                    <div class="hidden">
+                    <p class="lead"> Développeur web</p>
+                    </div>
+                </div>
+                <img id="hoverboard" src="{{ asset('images/hoverboardtest3.gif') }}" alt="hoverboard anime">
+                <div id="btn_jumbotron"><a class="btn btn-lg btn-danger" href="#" role="button">Plus d'informations</a>
+                    <a class="btn btn-lg btn-danger" href="/projects" role="button">Projets</a>
+                    <a class="btn btn-lg btn-danger" href="/cv" role="button">CV</a>
                 </div>
             </div>
         </div>
@@ -25,17 +30,28 @@
             </p>
         </div>
         <div class="row">
-            <div class="container">
-                    <img src="{{ asset('images/dev.png') }}" alt="imagedev">
+            <div id="dev_img" class="container">
+                <img id="dev" src="{{ asset('images/hoverboard.png') }}" alt="imagedev">
+            </div>
+            <div id="bulleblock" class="container">
                 <div class="bulle">
-                    <a><img id="cube" src="{{ asset('images/cube.jpg') }}" alt="cube"></a>
-                    <p class="cache"> < 1min</p>
+                    <img id="cube" src="{{ asset('images/cube.jpg') }}" alt="cube">
+                    <p class="cache cachecube"> < 1min</p>
                 </div>
                 <div class="bulle">
-                    <a><img id="chess" src="{{ asset('images/chess.png') }}" alt="chess"></a>
-                    <p class="cache"> Joueur d'echecs</p>
+                    <img id="chess" src="{{ asset('images/chess.png') }}" alt="chess">
+                    <p class="cache cachechess"> Joueur d'echecs</p>
+                </div>
+                <div class="bulle">
+                    <img id="moto" src="{{ asset('images/moto.png') }}" alt="moto">
+                    <p class="cache cachemoto">Motard (Pas de retard)</p>
+                </div>
+                <div class="bulle">
+                    <img id="os" src="{{ asset('images/os.png') }}" alt="os">
+                    <p class="cache cacheos">Multi OS</p>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 

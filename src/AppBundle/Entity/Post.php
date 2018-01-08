@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * @ORM\Entity
@@ -25,18 +27,22 @@ class Post
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
      */
     private $author;
 
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Ne dois pas etre vide")
      */
     private $content;
 
 
-
-
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
 
 
     /**

@@ -3,31 +3,25 @@ h1 {
 }
 
 #block_page {
-    margin-top: 100px;
+    margin-top: 50px;
+    background-color: #fbe4bb;
+    height: auto;
 }
 
+nav {
+    background-color: #fbe4bb;
+}
+
+#cv-dl {
+    padding-bottom: 100px;
+}
 
 
 /* Space out content a bit */
 body {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-}
-
-.jumbotron {
-    width: 100%;
-}
-
-.jumbotron .btn {
-    width: 250px;
-}
-
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-    padding-right: 1rem;
-    padding-left: 1rem;
+    background-color: #fbe4bb !important;
 }
 
 /* Custom page header */
@@ -42,38 +36,97 @@ body {
     line-height: 3rem;
 }
 
+.jumbotron {
+    width: 100%;
+    margin-top: -200px;
+    background-color: #fbe4bb !important;
+}
+
+.jumbotron .btn {
+    width: 250px;
+    margin-top: 100px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
 /* Custom page footer */
 .footer {
     color: #777;
     border-top: .05rem solid #e5e5e5;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #f5f5f5;
+}
+
+#text-hoverboard {
+    position: relative;
+    top:200px;
+}
+
+#text-hoverboard p{
+    position: relative;
+    top: 270px;
+}
+
+#dev_img {
+    width: 50%;
+    margin-left: 25%;
+}
+
+
+#bulleblock {
+    float: right;
+    padding-bottom: 100px;
+    margin-right: 30%;
 }
 
 .bulle {
-    position: relative;
-    right: 650px;
-    bottom: 10px;
-    float: right;
     width: 80px;
     height: 80px;
+    float: right;
 }
 
 .bulle #chess{
     width: 50px;
     height: 50px;
+    margin-left: 15px;
+    margin-top: 15px;
 
 }
 
+.bulle #moto{
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+    margin-top: 15px;
+
+}
+
+.bulle #os{
+    width: 140px;
+    height: 50px;
+    margin-left: -40px;
+    margin-top: 15px;
+
+}
+
+.cacheos {
+    margin-right: 15px;
+}
 
 #cube {
     margin-left: 15px;
     margin-top: 15px;
-}
-
-
-#cube:hover {
-    background-color: red;
-    border-radius: 45px;
-    border-style: double;
 }
 
 .cache {
@@ -163,15 +216,72 @@ body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
 }
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 60px;
-    line-height: 60px; /* Vertically center the text there */
-    background-color: #f5f5f5;
+
+
+/* CV */
+
+.progress {
+    height: 30px !important;
+    margin-bottom: 10px;
 }
+
+#tools {
+    margin-left: 12%;
+}
+
+#skills {
+    padding: 20px 20px 10px 20px;
+    background-color: #fbe4bb;
+    border-radius: 30px;
+    margin-bottom: -10px;
+
+}
+
+#formation {
+    margin-left: 35%;
+    margin-bottom: 30px;
+}
+
+#study {
+    padding: 20px 20px 10px 20px;
+    background-color: #fbe4bb;
+    border-radius: 30px;
+    margin-bottom: 100px;
+}
+
+.date-study {
+    border-right:solid 1px black;
+    padding-right: 10px;
+}
+
+
+
+#xp {
+    padding: 20px 20px 10px 20px;
+    background-color: #fbe4bb;
+    border-radius: 30px;
+    margin-bottom: -10px;
+}
+
+#work {
+    height:250px;
+    width: 250px;
+    margin-left: 36%;
+    margin-bottom: 30px;
+}
+
+.cv-title {
+    margin: 30px 0 30px 0;
+}
+
+.date-xp {
+    border-right:solid 1px black;
+}
+
+.content-xp {
+    padding-left: 30px;
+}
+
 
 /* Customize container */
 @media (min-width: 48em) {

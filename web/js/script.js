@@ -1,12 +1,29 @@
 $(function () {
 
-    $(".cache").hide();
+    $(".cachecube").hide();
+    $(".cachechess").hide();
+    $(".cachemoto").hide();
+    $(".cacheos").hide();
 
-    $( ".bulle" ).hover(
+
+    $( "#cube" ).hover(
         function(event) {
-            var $this = $(this);
-            $this.
-            $(".cache").toggle();
+            $(".cachecube").toggle();
+        });
+
+    $( "#chess" ).hover(
+        function(event) {
+            $(".cachechess").toggle();
+        });
+
+    $( "#moto" ).hover(
+        function(event) {
+            $(".cachemoto").toggle();
+        });
+
+    $( "#os" ).hover(
+        function(event) {
+            $(".cacheos").toggle();
         });
 
 });

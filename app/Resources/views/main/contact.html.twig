@@ -2,8 +2,22 @@
 {% block body %}
 
     <div class="container">
-        <div class="row">
+
             <h1>Contact</h1>
+        <div class="row">
+            <h1>Formulaire</h1>
+            <div class="well">
+
+
+                {{ form_start(form) }}
+                    {{ form_row(form.author) }}
+                    {{ form_row(form.content) }}
+                <input type="submit" formnovalidate="formnovalidate" value="Envoyer">
+                {{ form_end(form) }}
+
+
+            </div>
+            <p>Livre d'or ?</p>
         </div>
     </div>
 

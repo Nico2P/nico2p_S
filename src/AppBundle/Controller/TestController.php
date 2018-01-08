@@ -6,7 +6,9 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Post;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Response;
+
 
 class TestController extends Controller
 {
@@ -33,6 +35,37 @@ class TestController extends Controller
      *                  TEST
      *
      */
+
+    /**
+     * @Route("/test/form")
+     * Test form
+     */
+    public function addAction()
+    {
+        $post = new Post();
+        $formBuilder = $this->get('form.factory')->createBuilder(formType::class);
+        $formBuilder
+            ->add('auteur', TextType::class)
+            ->add('Message', TextareaType::class)
+            ;
+
+        $form = $formBuilder->getForm();
+
+
+        return $this->render('test/form.html.twig', array(
+            'form' => $form->createView(),
+        ));
+
+
+        //$em = $this->getDoctrine()->getManager();
+        //$em->persist($post);
+        //$em->flush();
+
+        //return new Response("<html><body>post crée en bdd</body></html>");
+    }
+
+
+
 
 
     /**

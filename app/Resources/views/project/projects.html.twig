@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <h2>Projets réalisé pour OpenClassRoom</h2>
+        </div>
+    </div>
+
+    <div class="imgcontainer">
+        <figure><img src="{{ asset('images/P1capture.png') }}" alt="">
+            <figcaption class="text-content"><span class="fa-stack fa-2x">
+                                    <i class="fa fa-circle" aria-hidden="true"></i>
+                                    <i class="fa fa-eye fa-stack-1x"></i>
+                                    <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                </span>Intégration maquette
+            </figcaption>
+        </figure>
+        <figure><img src="{{ asset('images/dev.png') }}" alt="">
+            <figcaption class="text-content"><span class="fa-stack fa-2x">
+                                    <i class="fa fa-circle" aria-hidden="true"></i>
+                                    <i class="fa fa-eye fa-stack-1x"></i>
+                                    <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                </span>Site WordPress</figcaption>
+        </figure>
+        <figure><img src="{{ asset('images/dev.png') }}" alt="">
+            <figcaption class="text-content"><span class="fa-stack fa-2x">
+                                    <i class="fa fa-circle" aria-hidden="true"></i>
+                                    <i class="fa fa-eye fa-stack-1x"></i>
+                                    <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                </span>Location de vélo via API
+            </figcaption>
+        </figure>
+        <figure><img src="{{ asset('images/dev.png') }}" alt="">
+            <figcaption class="text-content"><span class="fa-stack fa-2x">
+                                    <i class="fa fa-circle" aria-hidden="true"></i>
+                                    <i class="fa fa-eye fa-stack-1x"></i>
+                                    <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                </span>Blog pour un écrivan
+            </figcaption>
+        </figure>
+    </div>
+    </section>
+
+
+
+    <p>Commentaire ?</p>
+
+{% endblock %}
