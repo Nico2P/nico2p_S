@@ -6,9 +6,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\DateTime;
 
+use Gedmo\Mapping\Annotation as Gedmo;
+
 /**
- * @ORM\Entity
  * @ORM\Table(name="project")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ProjectRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Project
 {
@@ -19,9 +22,18 @@ class Project
      */
     private $id;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     * @Assert\DateTime()
+     */
+    private $date;
+
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string")
+     * @Assert\Length(min="5")
      * @Assert\NotBlank(message="Ne dois pas etre vide")
      */
     private $title;
@@ -33,8 +45,16 @@ class Project
     private $description;
 
 
+    /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Image", cascade={"persist", "remove"})
+     * @Assert\Valid()
+     */
+    private $image;
+
+
     public function __construct()
     {
+        $this->date         = new \Datetime();
 
     }
 
@@ -45,6 +65,21 @@ class Project
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @param \DateTime $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+    /**
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
     }
 
     /**
@@ -60,7 +95,7 @@ class Project
      */
     public function setTitle($title)
     {
-        $this->title = title;
+        $this->title = $title;
     }
 
     /**
@@ -77,6 +112,22 @@ class Project
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage(Image $image = null)
+    {
+        $this->image = $image;
     }
 
 

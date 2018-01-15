@@ -46,4 +46,14 @@
 
     <p>Commentaire ?</p>
 
+    <div id="test">
+        {%   for project in projects %}
+        {{ project.title }}
+        {{ project.description }}
+            {% if project.image is not null %}
+                <img src="{{ asset(project.image.webPath) }}" alt="{{ project.image.alt }}">
+                {% endif %}
+        {%  endfor %}
+    </div>
+
 {% endblock %}

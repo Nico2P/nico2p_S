@@ -6,3 +6,12 @@ homepage:
     path: /
     defaults:
         _controller: AppBundle:Main:homepage
+
+projects:
+    resource: "@AppBundle/Controller/ProjectController.php"
+    type :  annotation
+
+delete:
+    path: /projects/delete/{id}
+    defaults:
+        _controller: AppBundle:Projects:delete

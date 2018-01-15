@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Repository\ImageRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\DateTime;
@@ -37,6 +38,7 @@ class Post
      * @Assert\NotBlank(message="Ne dois pas etre vide")
      */
     private $content;
+
 
 
     public function __construct()
@@ -101,7 +103,5 @@ class Post
     {
         $this->content = $content;
     }
-
-
 
 }
