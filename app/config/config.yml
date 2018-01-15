@@ -78,3 +78,11 @@ doctrine_cache:
             type: %cache_type%
             file_system:
                 directory: %kernel.cache_dir%/markdown_cache #nouveau chemin du cache du markdown
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: UserBundle\Entity\User
+    from_email:
+        address: nico2p@protonmail.com
+        sender_name: Test nico2p

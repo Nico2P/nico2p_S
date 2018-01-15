@@ -29,6 +29,7 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
         "knplabs/knp-markdown-bundle": "^1.6",
+        "friendsofsymfony/user-bundle": "dev-master",
         "doctrine/doctrine-migrations-bundle": "^1.0"
     },
     "require-dev": {
