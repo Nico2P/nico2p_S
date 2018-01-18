@@ -49,8 +49,6 @@ class MainController extends Controller
             ->getForm()
         ;
 
-
-
         if($request->isMethod('POST')) {
 
             $form->handleRequest($request);

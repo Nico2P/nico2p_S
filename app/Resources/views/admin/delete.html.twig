@@ -14,7 +14,7 @@
     </p>
 
     {# On met l'id de l'annonce dans la route de l'action du formulaire #}
-    <form action="{{ path('delete', {'id': project.id}) }}" method="post">
+    <form action="{{ path('project_delete', { 'id': project.id })}}" method="post">
         <a href="{{ path('projects') }}" class="btn btn-default">
             <i class="glyphicon glyphicon-chevron-left"></i>
             Retour aux projets

@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<div id="admin">
+    <h2 class="securearea-title">Administration</h2>
+
+    <div id="login_destroy">
+        <p>Bienvenue !</p>
+        <p><a id="deconnexion" href="/logout" class="btn btn-info btn-lg">Se déconnecter</a></p>
+    </div>
+
+
+    <div id="btn_ajout">
+        <a href="/admin/projects/add" class="btn btn-info btn-lg">
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Ajouter un projet
+        </a>
+    </div>
+
+    <h2 class="securearea-title">Message via formulaire :</h2>
+    <br/>
+    <div class="table-responsive">
+        <table class="table table-striped" id="tabcommentaires">
+            <tr>
+                <th>Auteur</th>
+                <th>Message</th>
+                <th>Action</th>
+            </tr>
+
+            {%   for post in posts %}
+            <tr>
+                <td class="auteur_com"><p>{{ post.author }}</p></td>
+                <td class="contenu_com"><p>{{ post.content }}</p></td>
+                <td class="btn-tab action_com">
+                    <a href="{{ path('post_delete', { 'id': post.id }) }}" onclick="return(confirm('Supprimé le message ?'));" class="btn btn-info btn-lg"><i class="fa fa-check" aria-hidden="true" method="post"></i>Supprimé le message</a>
+                </td>
+            </tr>
+            {%  endfor %}
+        </table>
+    </div>
+
+    <hr/>
+
+    <h2>Liste des projets :</h2>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th id="title_table">Titre</th>
+                <th id="content_table">Description</th>
+                <th id="img_table">Image</th>
+                <th id="action_table">Action</th>
+            </tr>
+
+                {%   for project in projects %}
+            <tr class="lgn-tab">
+                <td><p>{{ project.title }}</p></td>
+                <td><p>{{ project.description }}</p></td>
+                {% if project.image is not null %}
+                    <td class="img_project img-thumbnail"><img src="{{ asset(project.image.webPath) }}" alt="{{ project.image.alt }}"></td>
+                {% endif %}
+
+                <td class="btn-tab">
+                    <a href="{{ path('project_edit', { 'id': project.id }) }}"  class="btn btn-info btn-lg">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modifier
+                    </a>
+                    <a href="{{ path('project_delete', { 'id': project.id }) }}" onclick="return(confirm('Etes-vous sûr de vouloir supprimer?'));" class="btn btn-info btn-lg">
+                    <i class="fa fa-trash" aria-hidden="true"></i> Supprimer
+                    </a>
+                </td>
+            </tr>
+            {%  endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}
+

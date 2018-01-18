@@ -7,53 +7,45 @@
         </div>
     </div>
 
-    <div class="imgcontainer">
-        <figure><img src="{{ asset('images/P1capture.png') }}" alt="">
-            <figcaption class="text-content"><span class="fa-stack fa-2x">
-                                    <i class="fa fa-circle" aria-hidden="true"></i>
-                                    <i class="fa fa-eye fa-stack-1x"></i>
-                                    <i class="fa fa-circle-thin fa-stack-2x"></i>
-                                </span>Intégration maquette
+
+
+
+
+    <div id="projects">
+
+    {%   for project in projects %}
+    <div class="project_block imgcontainer">
+
+        <div class="title_project">
+            <h4>{{ project.title }}</h4>
+        </div>
+        <div>
+        <figure>
+            {% if project.image is not null %}
+                <img class="img_project img-thumbnail" src="{{ asset(project.image.webPath) }}" alt="{{ project.image.alt }}">
+            {% endif %}
+            <figcaption class="text-content">
+                <span class="fa-stack fa-2x">
+                    <i class="fa fa-circle" aria-hidden="true"></i>
+                    <i class="fa fa-eye fa-stack-1x"></i>
+                    <i class="fa fa-circle-thin fa-stack-2x"></i>
+                </span>
+                {{ project.description }}
             </figcaption>
         </figure>
-        <figure><img src="{{ asset('images/dev.png') }}" alt="">
-            <figcaption class="text-content"><span class="fa-stack fa-2x">
-                                    <i class="fa fa-circle" aria-hidden="true"></i>
-                                    <i class="fa fa-eye fa-stack-1x"></i>
-                                    <i class="fa fa-circle-thin fa-stack-2x"></i>
-                                </span>Site WordPress</figcaption>
-        </figure>
-        <figure><img src="{{ asset('images/dev.png') }}" alt="">
-            <figcaption class="text-content"><span class="fa-stack fa-2x">
-                                    <i class="fa fa-circle" aria-hidden="true"></i>
-                                    <i class="fa fa-eye fa-stack-1x"></i>
-                                    <i class="fa fa-circle-thin fa-stack-2x"></i>
-                                </span>Location de vélo via API
-            </figcaption>
-        </figure>
-        <figure><img src="{{ asset('images/dev.png') }}" alt="">
-            <figcaption class="text-content"><span class="fa-stack fa-2x">
-                                    <i class="fa fa-circle" aria-hidden="true"></i>
-                                    <i class="fa fa-eye fa-stack-1x"></i>
-                                    <i class="fa fa-circle-thin fa-stack-2x"></i>
-                                </span>Blog pour un écrivan
-            </figcaption>
-        </figure>
+        </div>
+
+
     </div>
-    </section>
+    {%  endfor %}
+
+    </div>
+
 
 
 
     <p>Commentaire ?</p>
 
-    <div id="test">
-        {%   for project in projects %}
-        {{ project.title }}
-        {{ project.description }}
-            {% if project.image is not null %}
-                <img src="{{ asset(project.image.webPath) }}" alt="{{ project.image.alt }}">
-                {% endif %}
-        {%  endfor %}
-    </div>
+
 
 {% endblock %}
