@@ -7,11 +7,15 @@
 
 {% block body %}
 
-    <h2>Supprimer un project</h2>
 
-    <p>
-        Etes-vous certain de vouloir supprimer le project "{{ project.title }}" ?
-    </p>
+
+    {% if project is defined %}
+
+        <h2>Supprimer un project</h2>
+
+        <p>
+            Etes-vous certain de vouloir supprimer le project "{{ project.title }}" ?
+        </p>
 
     {# On met l'id de l'annonce dans la route de l'action du formulaire #}
     <form action="{{ path('project_delete', { 'id': project.id })}}" method="post">
@@ -24,5 +28,28 @@
         {# Ceci va générer le champ CSRF #}
         {{ form_rest(form) }}
     </form>
+    {% endif %}
+
+
+
+
+    {% if post is defined %}
+
+        <h2>Supprimer un message</h2>
+
+        <p>
+            Etes-vous certain de vouloir supprimer le message de "{{ post.author }}" ?
+        </p>
+        <form action="{{ path('post_delete', { 'id': post.id })}}" method="post">
+            <a href="{{ path('admin') }}" class="btn btn-default">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                Retour
+            </a>
+            {# Ici j'ai écrit le bouton de soumission à la main #}
+            <input type="submit" value="Supprimer" class="btn btn-danger" />
+            {# Ceci va générer le champ CSRF #}
+            {{ form_rest(form) }}
+        </form>
+    {% endif %}
 
 {% endblock %}

@@ -160,13 +160,16 @@ class AdminController extends Controller
             $em->remove($post);
             $em->flush();
 
-            $request->getSession()->getFlashBag()->add('notice', 'Message supprimé');
+            $request->getSession()->getFlashBag()->add('notice', 'Post supprimé');
 
             return $this->redirectToRoute('admin');
         }
 
 
-        return $this->redirectToRoute('admin');
+        return $this->render('admin/delete.html.twig', array(
+            'post' => $post,
+            'form'  =>$form->createView(),
+        ));
     }
 
 

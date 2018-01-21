@@ -22,6 +22,7 @@
         <table class="table table-striped" id="tabcommentaires">
             <tr>
                 <th>Auteur</th>
+                <th>Email</th>
                 <th>Message</th>
                 <th>Action</th>
             </tr>
@@ -29,9 +30,10 @@
             {%   for post in posts %}
             <tr>
                 <td class="auteur_com"><p>{{ post.author }}</p></td>
+                <td class="email_com"><p>{{ post.email }}</p></td>
                 <td class="contenu_com"><p>{{ post.content }}</p></td>
                 <td class="btn-tab action_com">
-                    <a href="{{ path('post_delete', { 'id': post.id }) }}" onclick="return(confirm('Supprimé le message ?'));" class="btn btn-info btn-lg"><i class="fa fa-check" aria-hidden="true" method="post"></i>Supprimé le message</a>
+                    <a href="{{ path('post_delete', { 'id': post.id }) }}" class="btn btn-info btn-lg"><i class="fa fa-check" aria-hidden="true" method="post"></i>Supprimé le message</a>
                 </td>
             </tr>
             {%  endfor %}
@@ -62,7 +64,7 @@
                     <a href="{{ path('project_edit', { 'id': project.id }) }}"  class="btn btn-info btn-lg">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modifier
                     </a>
-                    <a href="{{ path('project_delete', { 'id': project.id }) }}" onclick="return(confirm('Etes-vous sûr de vouloir supprimer?'));" class="btn btn-info btn-lg">
+                    <a href="{{ path('project_delete', { 'id': project.id }) }}" class="btn btn-info btn-lg">
                     <i class="fa fa-trash" aria-hidden="true"></i> Supprimer
                     </a>
                 </td>
