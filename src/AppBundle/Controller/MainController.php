@@ -22,6 +22,9 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 class MainController extends Controller
 {
 
+    /**
+     * @Route("/" , name="homepage")
+     */
     public function homepageAction()
     {
         return $this->render('main/homepage.html.twig');

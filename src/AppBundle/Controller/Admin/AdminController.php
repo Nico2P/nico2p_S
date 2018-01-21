@@ -6,7 +6,7 @@
  * Time: 15:47
  */
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Admin;
 
 use AppBundle\AppBundle;
 use AppBundle\Entity\Image;

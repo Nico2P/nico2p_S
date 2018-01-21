@@ -32,6 +32,11 @@ class Post
      */
     private $author;
 
+    /**
+     * @ORM\Column(name="email", type="string")
+     */
+    private $email;
+
 
     /**
      * @ORM\Column(type="text")
@@ -85,6 +90,22 @@ class Post
     public function setAuthor($author)
     {
         $this->author = $author;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
     }
 
 
