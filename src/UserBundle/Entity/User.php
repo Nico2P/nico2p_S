@@ -3,7 +3,8 @@
 namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Component\Security\Core\User\UserInterface;
+
 
 /**
  * User
@@ -11,7 +12,7 @@ use FOS\UserBundle\Model\User as BaseUser;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="UserBundle\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var int
@@ -50,7 +51,7 @@ class User
     /**
      * @ORM\Column(name="roles", type="array")
      */
-    protected $roles;
+    protected $roles = array();
 
 
     public function __construct()
@@ -89,6 +90,23 @@ class User
     {
         $this->username = $username;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getUsernameCanonical()
+    {
+        return $this->usernameCanonical;
+    }
+
+    /**
+     * @param mixed $usernameCanonical
+     */
+    public function setUsernameCanonical($usernameCanonical)
+    {
+        $this->usernameCanonical = $usernameCanonical;
+    }
+
 
     /**
      * @return mixed
@@ -152,6 +170,11 @@ class User
     public function setRoles($roles)
     {
         $this->roles = $roles;
+    }
+
+    public function eraseCredentials()
+    {
+
     }
 
 
