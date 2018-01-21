@@ -47,6 +47,7 @@
         <table class="table">
             <tr>
                 <th id="title_table">Titre</th>
+                <th id="url_table">Url</th>
                 <th id="content_table">Description</th>
                 <th id="img_table">Image</th>
                 <th id="action_table">Action</th>
@@ -55,6 +56,7 @@
                 {%   for project in projects %}
             <tr class="lgn-tab">
                 <td><p>{{ project.title }}</p></td>
+                <td><p>{{ project.url }}</p></td>
                 <td><p>{{ project.description }}</p></td>
                 {% if project.image is not null %}
                     <td class="img_project img-thumbnail"><img src="{{ asset(project.image.webPath) }}" alt="{{ project.image.alt }}"></td>

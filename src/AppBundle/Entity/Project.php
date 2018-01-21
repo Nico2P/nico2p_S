@@ -38,6 +38,13 @@ class Project
      */
     private $title;
 
+
+    /**
+     * @ORM\Column(type="string")
+     * @Assert\NotBlank(message="Ne dois pas etre vide")
+     */
+    private $url;
+
     /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank(message="Ne dois pas etre vide")
@@ -97,6 +104,23 @@ class Project
     {
         $this->title = $title;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param mixed $url
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
+
 
     /**
      * @return mixed

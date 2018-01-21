@@ -25,6 +25,7 @@ class ProjectType extends AbstractType
         $builder
             ->add('title', TextType::class)
             ->add('date', DateType::class)
+            ->add('url', TextType::class)
             ->add('description', TextareaType::class)
             ->add('image', ImageType::class)
             ->add('save', SubmitType::class)

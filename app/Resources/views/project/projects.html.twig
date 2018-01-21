@@ -20,7 +20,7 @@
             <h4>{{ project.title }}</h4>
         </div>
         <div>
-        <figure>
+        <a href="{{ project.url }}"><figure>
             {% if project.image is not null %}
                 <img class="img_project img-thumbnail" src="{{ asset(project.image.webPath) }}" alt="{{ project.image.alt }}">
             {% endif %}
@@ -32,7 +32,7 @@
                 </span>
                 {{ project.description }}
             </figcaption>
-        </figure>
+        </figure></a>
         </div>
 
 
