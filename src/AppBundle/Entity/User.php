@@ -1,6 +1,6 @@
 <?php
 
-namespace UserBundle\Entity;
+namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * User
  *
  * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="UserBundle\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
 class User implements UserInterface
 {
