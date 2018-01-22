@@ -2,17 +2,17 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Repository\ImageRepository;
+
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="post")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\PostRepository")
+ * @ORM\Table(name="commentary")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CommentaryRepository")
  */
-class Post
+class Commentary
 {
     /**
      * @ORM\Id
@@ -32,11 +32,6 @@ class Post
      * @Assert\NotBlank()
      */
     private $author;
-
-    /**
-     * @ORM\Column(name="email", type="string")
-     */
-    private $email;
 
 
     /**
@@ -92,23 +87,6 @@ class Post
     {
         $this->author = $author;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * @param mixed $email
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
-
 
     /**
      * @return mixed

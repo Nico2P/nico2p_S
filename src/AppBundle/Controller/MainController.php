@@ -10,9 +10,12 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Post;
 use AppBundle\Form\PostType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -49,15 +52,80 @@ class MainController extends Controller
         $post = new Post();
         $form   = $this->get('form.factory')->create(PostType::class, $post);
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+
+
+            //$transport = $this->get('mailer')->getTransport();
+            $transport = (new \Swift_SmtpTransport('smtp.gmail.com', 465, 'SSL'))
+                ->setUsername('nicolas.deplaine@gmail.com')
+                ->setPassword('*MDP*')
+            ;
+
+            $mailer = new \Swift_Mailer($transport);
+
+            $mail = (new \Swift_Message('Message de ' . $post->getAuthor()))
+                ->setFrom($post->getEmail())
+                ->setTo('contact@nico2p.com')
+                ->setDate($post->getDate()->format('Y-m-d H:i:s'))
+                ->setBody($post->getContent())
+            ;
+
+            $mailer->send($mail);
+
+
+            $request->getSession()->getFlashBag()->add('notice', 'Message bien envoyé.');
+
+            return $this->redirectToRoute('contact');
+
+            /**
+            save BDD
             $em = $this->getDoctrine()->getManager();
             $em->persist($post);
             $em->flush();
             $request->getSession()->getFlashBag()->add('notice', 'Message bien enregistrée.');
             return $this->redirectToRoute('contact');
+             */
         }
         return $this->render('main/contact.html.twig', array(
             'form' => $form->createView(),
         ));
+    }
+
+
+
+    /**
+     * @Route("/message" , name="message")
+     */
+    public function showMessageAction()
+    {
+
+        return $this->render('main/commentary.html.twig');
+    }
+
+
+
+
+    /**
+     * @Route("/commentary" , name="commentary")
+     * @Method("GET")
+     */
+    public function getMessageAction()
+    {
+        $commentary_list = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:Commentary')
+            ->findBy([], ['date' => 'ASC']);
+
+        if ($commentary_list === null) {
+            throw new NotFoundHttpException("Liste de commentaire vide :( ");
+        }
+
+
+        return new JsonResponse(array('commentary_list' => $commentary_list
+        ));
+
+        //return $this->render('main/commentary.html.twig', array(
+        //    'commentary_list' => $commentary_list
+        //));
     }
 
 

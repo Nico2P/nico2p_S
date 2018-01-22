@@ -8,8 +8,7 @@
 
 namespace AppBundle\Controller\Admin;
 
-use AppBundle\AppBundle;
-use AppBundle\Entity\Image;
+
 use AppBundle\Entity\Project;
 use AppBundle\Form\ProjectEditType;
 use AppBundle\Form\ProjectType;
