@@ -8,6 +8,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Commentary;
 use AppBundle\Entity\Post;
 use AppBundle\Form\PostType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -16,6 +17,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -94,11 +96,32 @@ class MainController extends Controller
 
     /**
      * @Route("/message" , name="message")
+     *
      */
-    public function showMessageAction()
+    public function showMessageAction(Request $request)
     {
 
-        return $this->render('main/commentary.html.twig');
+
+        if (isset($_POST['author']) && $_POST['message']) {
+
+            if ($request->isMethod('POST')) {
+                $commentary = new Commentary();
+                $commentary_author = $_POST['author'];
+                $commentary_content = $_POST['message'];
+                $commentary->setAuthor($commentary_author);
+                $commentary->setContent($commentary_content);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($commentary);
+                $em->flush();
+                return $this->redirectToRoute("homepage");
+            }
+
+
+        }
+
+
+
+        return $this->render('main/message.html.twig');
     }
 
 
@@ -106,22 +129,22 @@ class MainController extends Controller
 
     /**
      * @Route("/commentary" , name="commentary")
-     * @Method("GET")
+     * @Method({"GET", "POST"})
      */
-    public function getMessageAction()
+    public function getMessageAction(Request $request)
     {
         $commentary_list = $this->getDoctrine()
             ->getManager()
             ->getRepository('AppBundle:Commentary')
-            ->findBy([], ['date' => 'ASC']);
+            ->findBy([], ['date' => 'DESC']);
 
         if ($commentary_list === null) {
             throw new NotFoundHttpException("Liste de commentaire vide :( ");
         }
 
+        return new JsonResponse($commentary_list);
 
-        return new JsonResponse(array('commentary_list' => $commentary_list
-        ));
+
 
         //return $this->render('main/commentary.html.twig', array(
         //    'commentary_list' => $commentary_list

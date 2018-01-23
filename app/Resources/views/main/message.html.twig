@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <p>
+        <button id="ajoutMsg">Ajouter un message</button>
+    </p>
+
+    <!-- Les nouveaux éléments sont ajoutés dans cette balise -->
+    <div id="contenu">
+    </div>
+
+
+
+{% endblock %}
+
+
+
+
+
+{% block javascripts %}
+    <script src="{{ asset('js/ajax.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.2.1.slim.min.js') }}"></script>
+    <script src="{{ asset('js/message.js') }}"></script>
+{% endblock %}

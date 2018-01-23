@@ -1,27 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <p>
-        <button id="ajoutLien">Ajouter un lien</button>
-    </p>
-
-    <!-- Les nouveaux éléments sont ajoutés dans cette balise -->
-    <div id="contenu">
-    </div>
 
 
-
-
-    {%   for commentary in commentary_list %}
-
-            <div>
-                <p>{{ commentary.author }}</p>
-                <p>{{ commentary.content }}</p>
-            </div>
-
-
-
-    {%  endfor %}
-
+    <pre>
+        {{ dump() }}
+    </pre>
 {% endblock %}
 
 
@@ -30,5 +13,6 @@
 
 {% block javascripts %}
     <script src="{{ asset('js/ajax.js') }}"></script>
-    <script src="{{ asset('js/liensweb.js') }}"></script>
+    <script src="{{ asset('js/message.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.2.1.slim.min.js') }}"></script>
 {% endblock %}

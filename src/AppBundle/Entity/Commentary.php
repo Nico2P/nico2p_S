@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints\DateTime;
  * @ORM\Table(name="commentary")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CommentaryRepository")
  */
-class Commentary
+class Commentary implements \JsonSerializable
 {
     /**
      * @ORM\Id
@@ -45,6 +45,15 @@ class Commentary
     public function __construct()
     {
         $this->date = new \DateTime();
+    }
+
+    public function jsonSerialize()
+    {
+        return array(
+            'date' => $this->date,
+            'author'=> $this->author,
+            'content'=> $this->content,
+        );
     }
 
 
