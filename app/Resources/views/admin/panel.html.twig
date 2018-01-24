@@ -16,29 +16,29 @@
         </a>
     </div>
 
-    <h2 class="securearea-title">Message via formulaire :</h2>
+
+    <h2 class="securearea-title">Message / Avis :</h2>
     <br/>
     <div class="table-responsive">
         <table class="table table-striped" id="tabcommentaires">
             <tr>
                 <th>Auteur</th>
-                <th>Email</th>
                 <th>Message</th>
                 <th>Action</th>
             </tr>
 
-            {%   for post in posts %}
+            {%   for commentary in commentary_list %}
             <tr>
-                <td class="auteur_com"><p>{{ post.author }}</p></td>
-                <td class="email_com"><p>{{ post.email }}</p></td>
-                <td class="contenu_com"><p>{{ post.content }}</p></td>
+                <td class="auteur_com"><p>{{ commentary.author }}</p></td>
+                <td class="contenu_com"><p>{{ commentary.content }}</p></td>
                 <td class="btn-tab action_com">
-                    <a href="{{ path('post_delete', { 'id': post.id }) }}" class="btn btn-info btn-lg"><i class="fa fa-check" aria-hidden="true" method="post"></i>Supprimé le message</a>
+                    <a href="{{ path('commentary_delete', { 'id': commentary.id }) }}" class="btn btn-info btn-lg"><i class="fa fa-check" aria-hidden="true" method="post"></i>Supprimé le message</a>
                 </td>
             </tr>
             {%  endfor %}
         </table>
     </div>
+    
 
     <hr/>
 

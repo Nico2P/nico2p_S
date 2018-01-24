@@ -33,14 +33,14 @@
 
 
 
-    {% if post is defined %}
+    {% if commentary is defined %}
 
         <h2>Supprimer un message</h2>
 
         <p>
-            Etes-vous certain de vouloir supprimer le message de "{{ post.author }}" ?
+            Etes-vous certain de vouloir supprimer le message de "{{ commentary.author }}" ?
         </p>
-        <form action="{{ path('post_delete', { 'id': post.id })}}" method="post">
+        <form action="{{ path('commentary_delete', { 'id': commentary.id })}}" method="post">
             <a href="{{ path('admin') }}" class="btn btn-default">
                 <i class="glyphicon glyphicon-chevron-left"></i>
                 Retour

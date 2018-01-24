@@ -37,7 +37,7 @@ function creerElementInput(placeholder, taille) {
     inputElt.setAttribute("size", taille);
     inputElt.setAttribute("required", "true");
     inputElt.setAttribute("type", "text");
-    inputElt.setAttribute("class", "form-control");
+    inputElt.setAttribute("class", "form-control input_message");
     inputElt.setAttribute("oninvalid", "this.setCustomValidity('Non vide')");
     inputElt.setAttribute("oninput", "this.setCustomValidity('')");
     return inputElt;

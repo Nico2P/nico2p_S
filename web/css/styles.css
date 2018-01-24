@@ -313,6 +313,17 @@ body {
 }
 
 
+
+#form_message {
+    width: 300px;
+}
+
+.input_message
+{
+    margin-bottom: 10px;
+}
+
+
 /* Customize container */
 @media (min-width: 48em) {
     .container {

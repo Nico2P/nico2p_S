@@ -33,9 +33,9 @@ class AdminController extends Controller
             ->getRepository('AppBundle:Project')
             ->findBy([], ['date' => 'ASC']);
 
-        $posts = $this->getDoctrine()
+        $commentary_list = $this->getDoctrine()
             ->getManager()
-            ->getRepository('AppBundle:Post')
+            ->getRepository('AppBundle:Commentary')
             ->findBy([], ['date' => 'ASC']);
 
         if ($projects === null) {
@@ -43,7 +43,7 @@ class AdminController extends Controller
         }
 
         return $this->render('admin/panel.html.twig', array(
-            'projects' => $projects, 'posts' => $posts
+            'projects' => $projects, 'commentary_list' => $commentary_list
         ));
     }
 
@@ -138,33 +138,33 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/post/delete/{id}" , name="post_delete", requirements={"id": "\d+"})
+     * @Route("/admin/commentary/delete/{id}" , name="commentary_delete", requirements={"id": "\d+"})
      *@Security("has_role('ROLE_ADMIN')")
      */
-    public function postDelete(Request $request, $id)
+    public function commentaryDelete(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
-        $post = $em->getRepository("AppBundle:Post")->find($id);
+        $commentary = $em->getRepository("AppBundle:Commentary")->find($id);
 
 
-        if ($post === null) {
-            throw new NotFoundHttpException("Post introuvable :( ");
+        if ($commentary === null) {
+            throw new NotFoundHttpException("Commentaire introuvable :( ");
         }
 
         $form = $this->get('form.factory')->create();
 
         if($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
-            $em->remove($post);
+            $em->remove($commentary);
             $em->flush();
 
-            $request->getSession()->getFlashBag()->add('notice', 'Post supprimé');
+            $request->getSession()->getFlashBag()->add('notice', 'Commentaire supprimé');
 
             return $this->redirectToRoute('admin');
         }
 
 
         return $this->render('admin/delete.html.twig', array(
-            'post' => $post,
+            'commentary' => $commentary,
             'form'  =>$form->createView(),
         ));
     }
