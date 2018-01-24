@@ -34,20 +34,20 @@ class Project
     /**
      * @ORM\Column(type="string")
      * @Assert\Length(min="5")
-     * @Assert\NotBlank(message="Ne dois pas etre vide")
+     * @Assert\NotBlank(message="champ.NonVide")
      */
     private $title;
 
 
     /**
      * @ORM\Column(type="string")
-     * @Assert\NotBlank(message="Ne dois pas etre vide")
+     * @Assert\NotBlank()
      */
     private $url;
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="Ne dois pas etre vide")
+     * @Assert\NotBlank()
      */
     private $description;
 

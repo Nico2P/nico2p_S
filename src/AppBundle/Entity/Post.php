@@ -29,12 +29,13 @@ class Post
 
     /**
      * @ORM\Column(type="string")
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Ne dois pas etre vide")
      */
     private $author;
 
     /**
      * @ORM\Column(name="email", type="string")
+     * @Assert\Email(message="La valeur dois etre du type test@mail.com")
      */
     private $email;
 

@@ -4,17 +4,17 @@ var serveurUrl = "http://localhost:8001";
 // Crée et renvoie un élément DOM affichant les données d'un message
 // Le paramètre message est un objet JS représentant un message
 function creerElementMessage(message) {
-    var titreElt = document.createElement("p");
-    titreElt.style.color = "#428bca";
-    titreElt.style.textDecoration = "none";
-    titreElt.style.marginRight = "5px";
-    titreElt.appendChild(document.createTextNode(message.content));
+
+    var msgElt = document.createElement("p");
+    msgElt.style.color = "#428bca";
+    msgElt.style.marginRight = "5px";
+    msgElt.appendChild(document.createTextNode(message.content));
 
 
     // Cette ligne contient le titre du message
     var ligneMessageElt = document.createElement("h4");
     ligneMessageElt.style.margin = "0px";
-    ligneMessageElt.appendChild(titreElt);
+    ligneMessageElt.appendChild(msgElt);
 
     // Cette ligne contient l'auteur
     var ligneAuteurElt = document.createElement("span");
@@ -53,6 +53,8 @@ function creerElementInput(placeholder, taille) {
     inputElt.setAttribute("required", "true");
     inputElt.setAttribute("type", "text");
     inputElt.setAttribute("class", "form-control");
+    inputElt.setAttribute("oninvalid", "this.setCustomValidity('Non vide')");
+    inputElt.setAttribute("oninput", "this.setCustomValidity('')");
     return inputElt;
 }
 

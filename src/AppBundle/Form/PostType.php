@@ -24,9 +24,15 @@ class PostType extends AbstractType
     {
 
         $builder
-            ->add('author', TextType::class)
-            ->add('email', EmailType::class)
-            ->add('content', TextareaType::class)
+            ->add('author', TextType::class , array('attr'=>array(
+                'oninvalid'=>"setCustomValidity('Votre Nom')",
+                'oninput'=>"setCustomValidity('')")) )
+            ->add('email', EmailType::class, array('attr'=>array(
+                'oninvalid'=>"setCustomValidity('Votre Email pour vous recontactez')",
+                'oninput'=>"setCustomValidity('')")) )
+            ->add('content', TextareaType::class, array('attr'=>array(
+                'oninvalid'=>"setCustomValidity('Le contenu de votre message')",
+                'oninput'=>"setCustomValidity('')")) )
         ;
     }
 

@@ -56,10 +56,11 @@ class MainController extends Controller
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
 
 
-            //$transport = $this->get('mailer')->getTransport();
+            $mailerName = $this->getParameter('mailer_user');
+            $mailerPassword = $this->getParameter('mailer_password');
             $transport = (new \Swift_SmtpTransport('smtp.gmail.com', 465, 'SSL'))
-                ->setUsername('nicolas.deplaine@gmail.com')
-                ->setPassword('*MDP*')
+                ->setUsername($mailerName)
+                ->setPassword($mailerPassword)
             ;
 
             $mailer = new \Swift_Mailer($transport);

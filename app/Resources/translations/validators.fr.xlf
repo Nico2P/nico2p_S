@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="fr" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="champ.NonVide">
+                <source>champ.NonVide.</source>
+                <target>Cette valeur doit être fausse.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
