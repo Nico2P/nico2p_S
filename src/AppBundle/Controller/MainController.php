@@ -14,17 +14,9 @@ use AppBundle\Form\PostType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\DependencyInjection\Container;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
 
 class MainController extends Controller
 {
@@ -79,14 +71,6 @@ class MainController extends Controller
 
             return $this->redirectToRoute('contact');
 
-            /**
-            save BDD
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($post);
-            $em->flush();
-            $request->getSession()->getFlashBag()->add('notice', 'Message bien enregistrée.');
-            return $this->redirectToRoute('contact');
-             */
         }
         return $this->render('main/contact.html.twig', array(
             'form' => $form->createView(),

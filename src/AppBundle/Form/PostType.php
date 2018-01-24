@@ -10,9 +10,7 @@ namespace AppBundle\Form;
 
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -27,9 +25,11 @@ class PostType extends AbstractType
             ->add('author', TextType::class , array('attr'=>array(
                 'oninvalid'=>"setCustomValidity('Votre Nom')",
                 'oninput'=>"setCustomValidity('')")) )
+
             ->add('email', EmailType::class, array('attr'=>array(
                 'oninvalid'=>"setCustomValidity('Votre Email pour vous recontactez')",
                 'oninput'=>"setCustomValidity('')")) )
+
             ->add('content', TextareaType::class, array('attr'=>array(
                 'oninvalid'=>"setCustomValidity('Le contenu de votre message')",
                 'oninput'=>"setCustomValidity('')")) )

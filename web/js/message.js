@@ -1,26 +1,27 @@
-//var serveurUrl = "http://localhost/javascript-web-srv/web";
-var serveurUrl = "http://localhost:8001";
+let serveurUrl = "http://localhost:8001";
 
 // Crée et renvoie un élément DOM affichant les données d'un message
 // Le paramètre message est un objet JS représentant un message
 function creerElementMessage(message) {
 
-    var msgElt = document.createElement("p");
+    // Contenu du message
+    let msgElt = document.createElement("p");
     msgElt.style.color = "#428bca";
     msgElt.style.marginRight = "5px";
     msgElt.appendChild(document.createTextNode(message.content));
 
 
     // Cette ligne contient le titre du message
-    var ligneMessageElt = document.createElement("h4");
+    let ligneMessageElt = document.createElement("h4");
     ligneMessageElt.style.margin = "0px";
     ligneMessageElt.appendChild(msgElt);
 
     // Cette ligne contient l'auteur
-    var ligneAuteurElt = document.createElement("span");
+    let ligneAuteurElt = document.createElement("span");
     ligneAuteurElt.appendChild(document.createTextNode("Ajouté par " + message.author));
 
-    var divMessageElt = document.createElement("div");
+    // Ajout des lignes dans le block
+    let divMessageElt = document.createElement("div");
     divMessageElt.classList.add("message");
     divMessageElt.appendChild(ligneMessageElt);
     divMessageElt.appendChild(ligneAuteurElt);
@@ -28,25 +29,9 @@ function creerElementMessage(message) {
     return divMessageElt;
 }
 
-
-
-var contenuElt = document.getElementById("contenu");
-// Récupération de la liste des messages auprès du serveur
-ajaxGet(serveurUrl + "/commentary", function (reponse) {
-    // Liste des messages à afficher. Un message est défini par :
-    // - son titre
-    // - son auteur (la personne qui l'a publié)
-    var listeMessages = JSON.parse(reponse);
-    // Parcours de la liste des messages et ajout d'un élément au DOM pour chaque message
-    listeMessages.forEach(function (message) {
-        var messageElt = creerElementMessage(message);
-        contenuElt.appendChild(messageElt);
-    });
-});
-
 // Crée et renvoie un élément DOM de type input
 function creerElementInput(placeholder, taille) {
-    var inputElt = document.createElement("input");
+    let inputElt = document.createElement("input");
     inputElt.type = "text";
     inputElt.setAttribute("placeholder", placeholder);
     inputElt.setAttribute("size", taille);
@@ -58,7 +43,26 @@ function creerElementInput(placeholder, taille) {
     return inputElt;
 }
 
-var ajouterMessageElt = document.getElementById("ajoutMsg");
+
+
+let contenuElt = document.getElementById("contenu");
+
+// Récupération de la liste des messages auprès du serveur
+ajaxGet(serveurUrl + "/commentary", function (reponse) {
+    // Liste des messages à afficher. Un message est défini par :
+    // - son titre
+    // - son auteur (la personne qui l'a publié)
+    let listeMessages = JSON.parse(reponse);
+    // Parcours de la liste des messages et ajout d'un élément au DOM pour chaque message
+    listeMessages.forEach(function (message) {
+        let messageElt = creerElementMessage(message);
+        contenuElt.appendChild(messageElt);
+    });
+});
+
+
+
+let ajouterMessageElt = document.getElementById("ajoutMsg");
 // Gère l'ajout d'un nouveau message
 ajouterMessageElt.addEventListener("click", function () {
 
@@ -77,7 +81,7 @@ ajouterMessageElt.addEventListener("click", function () {
     messageElt.setAttribute('id', "message");
     messageElt.setAttribute('name', "message");
 
-    var ajoutElt = document.createElement("input");
+    let ajoutElt = document.createElement("input");
     ajoutElt.type = "submit";
     ajoutElt.value = "Ajouter";
 
@@ -85,53 +89,40 @@ ajouterMessageElt.addEventListener("click", function () {
     formMessageElt.appendChild(messageElt);
     formMessageElt.appendChild(ajoutElt);
 
-    var ajouterMessageElt = document.getElementById("ajoutMsg");
+    let ajouterMessageElt = document.getElementById("ajoutMsg");
 
-    var p = document.querySelector("p");
+    let p = document.querySelector("p");
     // Remplace le bouton d'ajout par le formulaire d'ajout
     p.replaceChild(formMessageElt, ajouterMessageElt);
 
-    var message = {
-        author : auteurElt.value,
-        content: messageElt.value
-    }
 
     //function submitForm() {
     formMessageElt.addEventListener("submit", function () {
 
 
         // Création de l'objet contenant les données du nouveau message
-        var message = {
+        let message = {
             author : auteurElt.value,
             content: messageElt.value
-        }
-        var messageEltNew = creerElementMessage(message);
+        };
+        let messageEltNew = creerElementMessage(message);
         contenuElt.insertBefore(messageEltNew, contenuElt.firstChild);
 
         // Création du message d'information
-        var ajouterMessageElt = document.getElementById("ajoutMsg");
-        var infoElt = document.createElement("div");
-        var p = document.querySelector("p");
+        let ajouterMessageElt = document.getElementById("ajoutMsg");
+        let infoElt = document.createElement("div");
+        let p = document.querySelector("p");
         infoElt.classList.add("info");
         infoElt.textContent = "Le message \"" + message.content + "\" a bien été ajouté.";
         p.insertBefore(infoElt, ajouterMessageElt);
         // Suppresion du message après 2 secondes
         setTimeout(function () {
             p.removeChild(infoElt);
-        }, 5000);
+        }, 2000);
         alert("Votre magnifique message va etre enregistré et vous allez être rediriger sur la page d'accueil !");
 
 
-        // Remplace le formulaire d'ajout par le bouton d'ajout
-        p.replaceChild(ajouterMessageElt, formMessageElt );
-
-
-
-        var form_data = new FormData(document.getElementById('ajaxForm'));
-
-        console.log(form_data + "formdata");
-
-
+        let form_data = new FormData(document.getElementById('ajaxForm'));
         form_data.append("label", "WEBUPLOAD");
         $.ajax({
             url: "localhost:8001/message",
@@ -141,11 +132,7 @@ ajouterMessageElt.addEventListener("click", function () {
             contentType: false
         }).done(function (data) {
             console.log(data);
-
         });
-
-
-
 
         return false;
     });

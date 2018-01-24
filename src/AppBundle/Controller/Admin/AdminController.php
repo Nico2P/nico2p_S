@@ -17,16 +17,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class AdminController extends Controller
 {
     /**
      * @Route("/admin", name="admin")
      * @Method({"GET", "POST"})
-     *@Security("has_role('ROLE_AUTEUR')")
+     *@Security("has_role('ROLE_ADMIN')")
      */
     public function adminAction(Request $request)
     {
@@ -54,7 +52,7 @@ class AdminController extends Controller
     /**
      * @Route("/admin/projects/add" , name="projects_add")
      * @Method({"GET", "POST"})
-     *@Security("has_role('ROLE_AUTEUR')")
+     *@Security("has_role('ROLE_ADMIN')")
      */
     public function projectAdd(Request $request)
     {
@@ -74,7 +72,7 @@ class AdminController extends Controller
 
     /**
      * @Route("/admin/projects/edit/{id}" , name="project_edit", requirements={"id": "\d+"})
-     * @Security("has_role('ROLE_AUTEUR')")
+     * @Security("has_role('ROLE_ADMIN')")
      *
      */
     public function projectEdit($id, Request $request)
@@ -109,7 +107,7 @@ class AdminController extends Controller
 
     /**
      * @Route("/admin/projects/delete/{id}" , name="project_delete", requirements={"id": "\d+"})
-     *@Security("has_role('ROLE_AUTEUR')")
+     *@Security("has_role('ROLE_ADMIN')")
      */
     public function projectDelete(Request $request, $id)
     {
@@ -141,7 +139,7 @@ class AdminController extends Controller
 
     /**
      * @Route("/admin/post/delete/{id}" , name="post_delete", requirements={"id": "\d+"})
-     *@Security("has_role('ROLE_AUTEUR')")
+     *@Security("has_role('ROLE_ADMIN')")
      */
     public function postDelete(Request $request, $id)
     {

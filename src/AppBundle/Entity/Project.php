@@ -4,9 +4,6 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Validator\Constraints\DateTime;
-
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Table(name="project")
@@ -34,7 +31,7 @@ class Project
     /**
      * @ORM\Column(type="string")
      * @Assert\Length(min="5")
-     * @Assert\NotBlank(message="champ.NonVide")
+     * @Assert\NotBlank()
      */
     private $title;
 
