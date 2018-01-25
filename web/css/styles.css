@@ -2,26 +2,62 @@ h1 {
     color: #0088CC;
 }
 
+h2.text-center{
+    margin-top: 50px !important;
+}
+
 #block_page {
-    margin-top: 50px;
-    background-color: #fbe4bb;
-    height: auto;
+    background-color: white;
+    width: 90%;
+    min-width: 300px;
+    margin-left:5%;
+}
+
+#login_page {
+    width: 250px;
+    margin: auto;
+}
+
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.jumbotron {
+    background-color: white !important;
+    padding: 0px !important;
+}
+
+
+
+.block_grey {
+    background-color: grey;
+    border-radius: 30px;
+    margin-bottom: 50px;
 }
 
 nav {
-    background-color: #fbe4bb;
+    background-color: white;
 }
-
-#cv-dl {
-    padding-bottom: 100px;
-}
-
 
 /* Space out content a bit */
 body {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    background-color: #fbe4bb !important;
+    background-color: white !important;
 }
 
 /* Custom page header */
@@ -38,8 +74,7 @@ body {
 
 .jumbotron {
     width: 100%;
-    margin-top: -200px;
-    background-color: #fbe4bb !important;
+    background-color: white;
 }
 
 .jumbotron .btn {
@@ -60,6 +95,7 @@ body {
     color: #777;
     border-top: .05rem solid #e5e5e5;
     position: absolute;
+    left:0;
     bottom: 0;
     width: 100%;
     /* Set the fixed height of the footer here */
@@ -68,19 +104,36 @@ body {
     background-color: #f5f5f5;
 }
 
-#text-hoverboard {
-    position: relative;
-    top:200px;
+#rubik_home {
+    width: 500px;
+    height: 500px;
 }
 
-#text-hoverboard p{
+#text-nico2p {
+    position: relative;
+    top:300px;
+}
+
+#text-nico2p p{
     position: relative;
     top: 270px;
 }
 
+#text_homepage {
+    padding: 20px;
+}
+
+#dev {
+    width: 700px;
+    height: 500px;
+    margin-left: 20%;
+}
+
+
+
 #dev_img {
-    width: 50%;
-    margin-left: 25%;
+    width: 700px;
+    height: 500px;
 }
 
 
@@ -129,6 +182,15 @@ body {
     margin-top: 15px;
 }
 
+#rubik_cube {
+    width: 30px;
+    height:30px;
+    background-color: yellow;
+    position: relative;
+    left:260px;
+    top:-210px;
+}
+
 .cache {
     margin-left: 15px;
 }
@@ -156,6 +218,7 @@ body {
 #projects {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 50px;
 }
 
 figure {
@@ -245,6 +308,7 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
+    padding-top: 60px;
 }
 
 
@@ -255,72 +319,83 @@ body {
     margin-bottom: 10px;
 }
 
-#tools {
-    margin-left: 12%;
-}
-
 #skills {
-    padding: 20px 20px 10px 20px;
-    background-color: #fbe4bb;
-    border-radius: 30px;
+    padding: 20px 20px 20px 20px;
     margin-bottom: -10px;
 
 }
 
-#formation {
-    margin-left: 35%;
-    margin-bottom: 30px;
-}
+
 
 #study {
-    padding: 20px 20px 10px 20px;
-    background-color: #fbe4bb;
+    padding: 20px 20px 20px 20px;
     border-radius: 30px;
-    margin-bottom: 100px;
+
+
 }
 
 .date-study {
     border-right:solid 1px black;
     padding-right: 10px;
+    width: 130px;
 }
 
 
 
 #xp {
-    padding: 20px 20px 10px 20px;
-    background-color: #fbe4bb;
+    padding: 20px 20px 20px 20px;
     border-radius: 30px;
-    margin-bottom: -10px;
 }
 
-#work {
+#level {
     height:250px;
-    width: 250px;
-    margin-left: 36%;
-    margin-bottom: 30px;
-}
-
-.cv-title {
-    margin: 30px 0 30px 0;
+    width: 500px;
 }
 
 .date-xp {
     border-right:solid 1px black;
+    width: 130px;
 }
 
 .content-xp {
     padding-left: 30px;
 }
 
+.content-xp p {
+    margin-bottom: 0px;
+}
+
 
 
 #form_message {
     width: 300px;
+    margin:auto;
+}
+
+#ajoutMsg {
+    width: 100%;
+}
+
+#add-message {
+    width: 100%;
 }
 
 .input_message
 {
     margin-bottom: 10px;
+}
+
+.message {
+    width: 300px;
+    padding-left: 100px;
+    margin-top: 30px;
+    margin-right: 30px;
+}
+
+#contenu {
+    margin-left: 5%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 

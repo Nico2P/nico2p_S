@@ -2,19 +2,27 @@
 
 {% block body %}
 
+
+    <div id="login_page">
     {% if error %}
 <div class="alert alert-danger">{{ error.message }}</div>
     {% endif %}
 
 
-<form action="{{ path('login_check') }}" method="post">
-    <label for="username">Login :</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+<form class="form-signin" action="{{ path('login_check') }}" method="post">
+    <h2 class="form-signin-heading">Espace Admin</h2>
+    <div>
+    <label for="username"></label>
+    <input type="text" id="username" name="_username" placeholder="Nom utilisateur" value="{{ last_username }}" />
+    </div>
 
-    <label for="password">Mot de passe :</label>
-    <input type="password" id="password" name="_password" />
+    <div>
+    <label for="password"></label>
+    <input type="password" id="password" name="_password" placeholder="Mot de passe"/>
+    </div>
     <br/>
-    <input type="submit" value="Connexion"/>
+    <input class="btn btn-info" type="submit" value="Connexion"/>
 </form>
+    </div>
 
 {% endblock %}

@@ -6,8 +6,10 @@ function creerElementMessage(message) {
 
     // Contenu du message
     let msgElt = document.createElement("p");
-    msgElt.style.color = "#428bca";
+    msgElt.style.color = "white";
     msgElt.style.marginRight = "5px";
+
+
     msgElt.appendChild(document.createTextNode(message.content));
 
 
@@ -22,6 +24,8 @@ function creerElementMessage(message) {
 
     // Ajout des lignes dans le block
     let divMessageElt = document.createElement("div");
+    divMessageElt.style.borderRadius = "30px";
+    divMessageElt.style.backgroundColor = "grey";
     divMessageElt.classList.add("message");
     divMessageElt.appendChild(ligneMessageElt);
     divMessageElt.appendChild(ligneAuteurElt);
@@ -38,7 +42,7 @@ function creerElementInput(placeholder, taille) {
     inputElt.setAttribute("required", "true");
     inputElt.setAttribute("type", "text");
     inputElt.setAttribute("class", "form-control input_message");
-    inputElt.setAttribute("oninvalid", "this.setCustomValidity('Non vide')");
+    inputElt.setAttribute("oninvalid", "this.setCustomValidity('Champ obligatoire')");
     inputElt.setAttribute("oninput", "this.setCustomValidity('')");
     return inputElt;
 }
@@ -82,8 +86,10 @@ ajouterMessageElt.addEventListener("click", function () {
     messageElt.setAttribute('name', "message");
 
     let ajoutElt = document.createElement("input");
+    ajoutElt.setAttribute('id', "add-message");
+    ajoutElt.setAttribute("class", "btn btn-info");
     ajoutElt.type = "submit";
-    ajoutElt.value = "Ajouter";
+    ajoutElt.value = "Ajoutez votre message";
 
     formMessageElt.appendChild(auteurElt);
     formMessageElt.appendChild(messageElt);
@@ -119,7 +125,7 @@ ajouterMessageElt.addEventListener("click", function () {
         setTimeout(function () {
             p.removeChild(infoElt);
         }, 2000);
-        alert("Votre magnifique message va etre enregistré et vous allez être rediriger sur la page d'accueil !");
+        alert("Votre gentil message va être enregistré et vous allez être redirigé(e) sur la page d'accueil !");
 
 
         let form_data = new FormData(document.getElementById('ajaxForm'));

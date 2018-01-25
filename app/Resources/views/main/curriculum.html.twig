@@ -3,59 +3,62 @@
 
 
     <div class="container">
-        <div class="row">
-            <h2 class="cv-title">Competence</h2>
+
+        <div id="cv-dl">
+            <a class="btn btn-info" href="{{ asset('images/cv.pdf') }}"
+               download="CV_Nico2p.pdf">Télécharger le cv</a>
         </div>
 
 
-        <div class="row">
+            <h2 class="text-center">Compétences</h2>
 
-            <img id="tools" src="{{ asset('images/tools.jpg') }}" alt="tools">
-        </div>
-
-        <div class="container-fluid" id="skills">
-                <div class="progress">
-                    <div class="progress-bar progress-bar" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Python</div>
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 90%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">10%</div>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar- bg-success" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Installation, mise à niveau et dépannage matériel</div>
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 5%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">95%</div>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar- bg-info" role="progressbar" style="width: 70%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">PHP/Symfony</div>
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: 30%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">70%</div>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar bg-warning" role="progressbar" style="width: 70%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">JavaScript/jQuery</div>
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width: 30%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">70%</div>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">HTML/CSS</div>
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 10%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">90%</div>
-                </div>
-        </div>
 
         <div class="row">
-            <h2 class="cv-title">Experience</h2>
+            <img class="mx-auto d-block" src="{{ asset('images/tools.jpg') }}" alt="tools">
         </div>
 
 
         <div class="row">
-            <img id="work" src="{{ asset('images/work.png') }}" alt="work">
+            <div class="container-fluid block_grey" id="skills">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">Python</div>
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 90%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">10%</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar- bg-success" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Installation, mise à niveau et dépannage matériel</div>
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 5%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">95%</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar- bg-info" role="progressbar" style="width: 70%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">PHP/Symfony</div>
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: 30%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">70%</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar bg-warning" role="progressbar" style="width: 70%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">JavaScript/jQuery</div>
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width: 30%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">70%</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">HTML/CSS</div>
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 10%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">90%</div>
+                    </div>
+            </div>
         </div>
 
-        <div class="container-fluid">
+            <h2 class="text-center">Expériences</h2>
+
+        <div class="row">
+            <img class="mx-auto d-block" id="level" src="{{ asset('images/level.png') }}" alt="level">
+        </div>
+
+        <div class="container-fluid block_grey">
             <div class="row" id="xp">
-
                 <table>
                     <tr>
                         <td class="date-xp">
                         2014 - 2016
                         </td>
                         <td class="content-xp">
-                            Technicien support - Eiffage
-                            Support de niveau 1, résolution des incidents à distance et formation des utilisateurs, utilisation d'un outil de ticket.
+                            <p class="font-weight-bold">Technicien support - Eiffage</p>
+                            <p>Résolution des incidents à distance et formation des utilisateurs, utilisation d'un outil de ticket</p>
                         </td>
                     </tr>
                     <tr>
@@ -63,35 +66,39 @@
                             2013 - 2014
                         </td>
                         <td class="content-xp">
-                            Technicien de proximité - Technisites
-                            Maintenance du parc informatique et imprimantes des laboratoires d'analyse médicale. Résolution à distance ou sur site et formation des utilisateurs
+                            <p class="font-weight-bold">Technicien de proximité - Technisites</p>
+                            <p>Maintenance du parc informatique et imprimantes des laboratoires d'analyse médicale. Résolution à distance ou sur site et formation des utilisateurs</p>
                         </td>
                     </tr>
                 </table>
             </div>
         </div>
 
+        <h2 class="text-center">Formation</h2>
 
         <div class="row">
-            <h2 class="cv-title">Formations</h2>
+            <img class="mx-auto d-block" src="{{ asset('images/study.jpg') }}" alt="formation">
         </div>
 
-        <div class="row">
-
-            <img id="formation" src="{{ asset('images/study.jpg') }}" alt="formation">
-        </div>
-        <div class="container-fluid">
-            <div class="row" id="study">
-
+        <div class="container-fluid block_grey">
+            <div class="row" id="study" >
                 <table>
                     <tr>
                         <td class="date-study">
                             2016 - 2018
                         </td>
                         <td class="content-xp">
-                            Développeur Web Junior
-                            Diplôme prévu pour début 2018
-                            Bac+2 ou équivalent
+                            <p>Développeur Web Junior</p>
+                            <p>Diplôme prévu pour début 2018
+                                Bac+2 ou équivalent</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="date-study">
+                            2013
+                        </td>
+                        <td class="content-xp">
+                            Piscine Ecole 42
                         </td>
                     </tr>
                     <tr>
@@ -104,15 +111,7 @@
                     </tr>
                 </table>
             </div>
-            <div id="cv-dl">
-            <a href="{{ asset('images/cv.pdf') }}"
-               download="CV_Nico2p.pdf">Télécharger le cv</a>
-            </div>
         </div>
-
-
-
-
     </div>
 
 

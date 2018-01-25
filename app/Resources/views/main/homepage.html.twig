@@ -2,17 +2,17 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            <div class="jumbotron">
-                <div id="text-hoverboard">
-                    <h1 class="display-3">Nico2p</h1>
+            <div id="jumbo-home" class="jumbotron">
+                <div id="text-nico2p">
+                    <h1 class="display-3 text-white">Nico2p</h1>
                     <div class="hidden">
                     <p class="lead"> Développeur web</p>
                     </div>
                 </div>
-                <img id="hoverboard" src="{{ asset('images/hoverboardtest3.gif') }}" alt="hoverboard anime">
-                <div id="btn_jumbotron"><a class="btn btn-lg btn-danger" href="#" role="button">Plus d'informations</a>
-                    <a class="btn btn-lg btn-danger" href="/projects" role="button">Projets</a>
-                    <a class="btn btn-lg btn-danger" href="/cv" role="button">CV</a>
+                <img id="rubik_home" src="{{ asset('images/Rubik.png') }}" alt="rubik_accueil">
+                <div id="btn_jumbotron"><a class="btn btn-info" href="#" role="button">Plus d'informations</a>
+                    <a class="btn btn-info" href="/projects" role="button">Projets</a>
+                    <a class="btn btn-info" href="/cv" role="button">CV</a>
                 </div>
             </div>
         </div>
@@ -20,8 +20,8 @@
 
 
     <div class="container">
-        <div class="row">
-            <p> "Mais, vous savez, moi je ne crois pas qu'il y ait de bonne ou de mauvaise situation.
+        <div class="row block_grey">
+            <p id="text_homepage"> Mais, vous savez, moi je ne crois pas qu'il y ait de bonne ou de mauvaise situation.
                 Moi, si je devais résumer ma vie aujourd'hui avec vous, je dirais que c'est d'abord des rencontres,
                 des gens qui m'ont tendu la main, peut-être à un moment où je ne pouvais pas,
                 où j'étais seul chez moi. Et c'est assez curieux de se dire que les hasards,
@@ -36,12 +36,13 @@
                 eh ben je leur réponds très simplement, je leur dis que c'est ce goût de l'amour,
                 ce goût donc qui m'a poussé aujourd'hui à entreprendre la programmation informatique,
                 mais demain, qui sait, peut-être seulement à me mettre à votre service ,
-                à faire le don, le don de soi..."
+                à faire le don, le don de soi...
             </p>
         </div>
         <div class="row">
-            <div id="dev_img" class="container">
-                <img id="dev" src="{{ asset('images/hoverboard.png') }}" alt="imagedev">
+            <div id="nico2p" class="container">
+                <img id="dev_img" src="{{ asset('images/nico2p.jpg') }}" alt="nico2p">
+                <div id="rubik_cube" class="cache cache_rubik_cube"> < 1min </div>
             </div>
             <div id="bulleblock" class="container">
                 <div class="bulle">

@@ -32,13 +32,13 @@
                 <td class="auteur_com"><p>{{ commentary.author }}</p></td>
                 <td class="contenu_com"><p>{{ commentary.content }}</p></td>
                 <td class="btn-tab action_com">
-                    <a href="{{ path('commentary_delete', { 'id': commentary.id }) }}" class="btn btn-info btn-lg"><i class="fa fa-check" aria-hidden="true" method="post"></i>Supprimé le message</a>
+                    <a href="{{ path('commentary_delete', { 'id': commentary.id }) }}" class="btn btn-info btn-lg"><i class="fa fa-check" aria-hidden="true" method="post"></i>Supprimer le message</a>
                 </td>
             </tr>
             {%  endfor %}
         </table>
     </div>
-    
+
 
     <hr/>
 

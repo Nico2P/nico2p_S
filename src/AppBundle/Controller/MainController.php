@@ -69,7 +69,7 @@ class MainController extends Controller
 
             $request->getSession()->getFlashBag()->add('notice', 'Message bien envoyé.');
 
-            return $this->redirectToRoute('contact');
+            return $this->redirectToRoute('homepage');
 
         }
         return $this->render('main/contact.html.twig', array(

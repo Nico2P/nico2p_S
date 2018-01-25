@@ -30,15 +30,15 @@ class ProjectType extends AbstractType
             ->add('date', DateType::class)
 
             ->add('url', TextType::class, array('attr'=>array(
-                'oninvalid'=>"setCustomValidity('URL invalide')",
+                'oninvalid'=>"setCustomValidity('URL non valide')",
                 'oninput'=>"setCustomValidity('')")) )
 
             ->add('description', TextareaType::class, array('attr'=>array(
-                'oninvalid'=>"setCustomValidity('Ne dois pas être vide')",
+                'oninvalid'=>"setCustomValidity('Description non valide')",
                 'oninput'=>"setCustomValidity('')")) )
 
             ->add('image', ImageType::class, array('attr'=>array(
-                'oninvalid'=>"setCustomValidity('Aucune image selectionné')",
+                'oninvalid'=>"setCustomValidity('Aucune image sélectionnée')",
                 'oninput'=>"setCustomValidity('')")) )
 
             ->add('save', SubmitType::class)

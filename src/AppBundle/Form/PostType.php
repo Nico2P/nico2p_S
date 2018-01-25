@@ -27,7 +27,7 @@ class PostType extends AbstractType
                 'oninput'=>"setCustomValidity('')")) )
 
             ->add('email', EmailType::class, array('attr'=>array(
-                'oninvalid'=>"setCustomValidity('Votre Email pour vous recontactez')",
+                'oninvalid'=>"setCustomValidity('Votre Email pour vous recontacter')",
                 'oninput'=>"setCustomValidity('')")) )
 
             ->add('content', TextareaType::class, array('attr'=>array(
