@@ -31,20 +31,21 @@ class Project
     /**
      * @ORM\Column(type="string")
      * @Assert\Length(min="5")
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Le titre ne peut pas être vide")
      */
     private $title;
 
 
     /**
      * @ORM\Column(type="string")
-     * @Assert\NotBlank()
+     * @Assert\Url()
      */
     private $url;
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank()
+     * @Assert\Length(min="5")
+     * @Assert\NotBlank(message="La description ne peut pas être vide")
      */
     private $description;
 

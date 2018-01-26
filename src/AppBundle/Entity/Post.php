@@ -29,7 +29,7 @@ class Post
 
     /**
      * @ORM\Column(type="string")
-     * @Assert\NotBlank(message="Ne dois pas etre vide")
+     * @Assert\NotBlank(message="Votre nom")
      */
     private $author;
 
@@ -42,7 +42,7 @@ class Post
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="Ne dois pas etre vide")
+     * @Assert\NotBlank(message="Votre message ne peut etre vide")
      */
     private $content;
 

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Ce n'etait pas prévu! - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    <div id="error_page">
+        <h2> Oula, ça c'etait pas prévu </h2>
+        <p>Un problème sauvage est apparu</p>
+        <p> Son petit nom : "{{ status_code }}"</p>
+        <p> Un petit message incomprehensible pour vous : "{{ status_text }}"</p>
+    </div>
+
+{% endblock %}

@@ -88,7 +88,7 @@ class AdminController extends Controller
         }
 
         // FORMULAIRE
-        $form = $this->get('form.factory')->create(ProjectEditType::class, $project);
+        $form = $this->get('form.factory')->create(ProjectType::class, $project);
 
         if($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
 

@@ -23,23 +23,15 @@ class ProjectType extends AbstractType
     {
 
         $builder
-            ->add('title', TextType::class, array('attr'=>array(
-                'oninvalid'=>"setCustomValidity('Titre non valide')",
-                'oninput'=>"setCustomValidity('')")) )
+            ->add('title', TextType::class)
 
             ->add('date', DateType::class)
 
-            ->add('url', TextType::class, array('attr'=>array(
-                'oninvalid'=>"setCustomValidity('URL non valide')",
-                'oninput'=>"setCustomValidity('')")) )
+            ->add('url', TextType::class)
 
-            ->add('description', TextareaType::class, array('attr'=>array(
-                'oninvalid'=>"setCustomValidity('Description non valide')",
-                'oninput'=>"setCustomValidity('')")) )
+            ->add('description', TextareaType::class)
 
-            ->add('image', ImageType::class, array('attr'=>array(
-                'oninvalid'=>"setCustomValidity('Aucune image sélectionnée')",
-                'oninput'=>"setCustomValidity('')")) )
+            ->add('image', ImageType::class)
 
             ->add('save', SubmitType::class)
             ;

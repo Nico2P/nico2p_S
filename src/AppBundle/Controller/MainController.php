@@ -91,8 +91,8 @@ class MainController extends Controller
 
             if ($request->isMethod('POST')) {
                 $commentary = new Commentary();
-                $commentary_author = $_POST['author'];
-                $commentary_content = $_POST['message'];
+                $commentary_author = htmlspecialchars($_POST['author']);
+                $commentary_content = htmlspecialchars($_POST['message']);
                 $commentary->setAuthor($commentary_author);
                 $commentary->setContent($commentary_content);
                 $em = $this->getDoctrine()->getManager();
@@ -128,12 +128,6 @@ class MainController extends Controller
         }
 
         return new JsonResponse($commentary_list);
-
-
-
-        //return $this->render('main/commentary.html.twig', array(
-        //    'commentary_list' => $commentary_list
-        //));
     }
 
 

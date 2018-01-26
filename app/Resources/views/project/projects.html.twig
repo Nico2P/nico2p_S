@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
+    {% block title %}
+        Projets - {{ parent() }}
+    {% endblock %}
+
     <div class="container">
         <div class="row">
             <h2>Projets réalisés pour OpenClassRoom</h2>
