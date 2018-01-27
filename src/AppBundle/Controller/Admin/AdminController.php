@@ -10,7 +10,6 @@ namespace AppBundle\Controller\Admin;
 
 
 use AppBundle\Entity\Project;
-use AppBundle\Form\ProjectEditType;
 use AppBundle\Form\ProjectType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -63,7 +62,7 @@ class AdminController extends Controller
             $em->persist($project);
             $em->flush();
             $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
-            return $this->redirectToRoute('projects');
+            return $this->redirectToRoute('admin');
         }
         return $this->render('admin/add.html.twig', array(
             'form' => $form->createView(),
@@ -96,7 +95,7 @@ class AdminController extends Controller
 
             $request->getSession()->getFlashBag()->add('notice', 'Project modifié');
 
-            return $this->redirectToRoute('projects');
+            return $this->redirectToRoute('admin');
         }
 
         return $this->render('admin/edit.html.twig', array(
@@ -127,7 +126,7 @@ class AdminController extends Controller
 
             $request->getSession()->getFlashBag()->add('notice', 'Project supprimé');
 
-            return $this->redirectToRoute('projects');
+            return $this->redirectToRoute('admin');
         }
 
 
