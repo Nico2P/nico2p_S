@@ -83,7 +83,7 @@ class AdminController extends Controller
 
 
         if ($project === null) {
-            throw new NotFoundHttpException("Project introuvable :( ");
+            throw new NotFoundHttpException("Projet introuvable :( ");
         }
 
         // FORMULAIRE
@@ -93,7 +93,7 @@ class AdminController extends Controller
 
             $em->flush();
 
-            $request->getSession()->getFlashBag()->add('notice', 'Project modifié');
+            $request->getSession()->getFlashBag()->add('notice', 'Projet modifié');
 
             return $this->redirectToRoute('admin');
         }
@@ -115,7 +115,7 @@ class AdminController extends Controller
 
 
         if ($project === null) {
-            throw new NotFoundHttpException("Project introuvable :( ");
+            throw new NotFoundHttpException("Projet introuvable :( ");
         }
 
         $form = $this->get('form.factory')->create();
@@ -124,7 +124,7 @@ class AdminController extends Controller
             $em->remove($project);
             $em->flush();
 
-            $request->getSession()->getFlashBag()->add('notice', 'Project supprimé');
+            $request->getSession()->getFlashBag()->add('notice', 'Projet supprimé');
 
             return $this->redirectToRoute('admin');
         }
