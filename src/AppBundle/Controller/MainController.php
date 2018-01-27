@@ -55,22 +55,6 @@ class MainController extends Controller
         $form   = $this->get('form.factory')->create(PostType::class, $post);
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
 
-            /*
-            $mailerName = $this->getParameter('mailer_user');
-            $mailerPassword = $this->getParameter('mailer_password');
-
-            $transport = (new \Swift_SmtpTransport)
-                ->setHost('auth.smtp.1and1.fr')
-                ->setPort(465)
-                ->setEncryption('SSL')
-                ->setAuthMode('login')
-                ->setTimeout(30)
-                ->setUsername($mailerName)
-                ->setPassword($mailerPassword)
-            ;
-            $mailer = new \Swift_Mailer($transport);
-            */
-
             $transport = \Swift_MailTransport::newInstance();
 
             $mailer = \Swift_Mailer::newInstance($transport);
@@ -152,11 +136,6 @@ class MainController extends Controller
 
         return new JsonResponse($commentary_list);
 
-
-
-        //return $this->render('main/commentary.html.twig', array(
-        //    'commentary_list' => $commentary_list
-        //));
     }
 
 

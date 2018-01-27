@@ -20,6 +20,11 @@
 
     <h2 class="text-center">Message / Avis :</h2>
     <br/>
+    {% for message in app.flashes('notice') %}
+        <div class="flash-notice">
+            {{ message }}
+        </div>
+    {% endfor %}
     <div class="table-responsive block_grey">
         <table class="table table-striped" id="tabcommentaires">
             <tr>

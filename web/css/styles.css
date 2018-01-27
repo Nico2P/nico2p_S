@@ -100,6 +100,10 @@ body {
     margin-bottom: 30px;
 }
 
+#jumbo-home {
+    margin-top: -150px;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
