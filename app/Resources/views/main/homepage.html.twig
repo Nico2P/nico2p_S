@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Acceuil - {{ parent() }}
+    Accueil - {{ parent() }}
 {% endblock %}
 
 {% block body %}
@@ -15,9 +15,12 @@
                         </div>
                     </div>
                     <img id="rubik_home" src="{{ asset('images/Rubik.png') }}" alt="rubik_accueil">
-                    <div id="btn_jumbotron"><a class="btn btn-info" href="/more" role="button">Plus d'informations</a>
-                        <a class="btn btn-info" href="/projects" role="button">Projets</a>
+                    <div id="btn_jumbotron">
+
                         <a class="btn btn-info" href="/cv" role="button">CV</a>
+                        <a class="btn btn-info" href="/projects" role="button">Projets</a>
+                        <a class="btn btn-info" href="/more" role="button">Plus d'informations</a>
+
                     </div>
             </div>
         </div>

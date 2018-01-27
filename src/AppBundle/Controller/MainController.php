@@ -84,9 +84,12 @@ class MainController extends Controller
 
             $mailer->send($mail);
 
-            $request->getSession()->getFlashBag()->add('notice', 'Message bien envoyé.');
+            $this->addFlash(
+                'notice',
+                'Mail Envoyé !'
+            );
 
-            return $this->redirectToRoute('homepage');
+            return $this->redirectToRoute('contact');
 
         }
         return $this->render('main/contact.html.twig', array(
@@ -115,7 +118,13 @@ class MainController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($commentary);
                 $em->flush();
-                return $this->redirectToRoute("homepage");
+
+                $this->addFlash(
+                    'notice',
+                    'Message enregistré!'
+                );
+
+                return $this->redirectToRoute("message");
             }
 
 

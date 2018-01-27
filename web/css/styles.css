@@ -10,7 +10,15 @@ h2.text-center{
     width: 90%;
     min-width: 300px;
     margin: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
+
+.flash-notice {
+    margin-bottom: 30px;
+    text-align: center !important;
+}
+
 
 #login_page {
 
@@ -347,6 +355,10 @@ body {
 
 }
 
+.img-thumbnail {
+    height: 300px !important;
+}
+
 #block_study {
     margin-bottom: 60px;
 }
@@ -373,6 +385,12 @@ body {
     height:250px;
     width: 500px;
     margin-top: 30px;
+}
+
+#tools {
+    height:200px;
+    width: 50%;
+    margin-top: 60px;
 }
 
 .date-xp {
@@ -471,9 +489,9 @@ body {
 
 
 /* Customize container */
-@media (min-width: 48em) {
+@media (min-width: 768px) {
     .container {
-        max-width: 46rem;
+        max-width: 736px;
     }
 }
 .container-narrow > hr {
@@ -515,4 +533,109 @@ body {
     .jumbotron {
         border-bottom: 0;
     }
+}
+
+
+/* RESPONSIVE*/
+
+
+@media (max-width: 768px) {
+
+    #rubik_home {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 100px;
+        margin-top: -400px;
+    }
+
+    #text-nico2p h1 {
+        margin-bottom: 250px;
+    }
+
+    #text-nico2p p {
+        position: relative;
+        top:-230px;
+    }
+
+    #block_page {
+        position: relative;
+        top: 50px;
+    }
+    .navbar-nav {
+        flex-direction: row !important;
+    }
+
+    .nav-link {
+        margin-left: 5px;
+
+    }
+
+    #level {
+        height: 150px;
+        width: 300px;
+    }
+
+
+    #tools {
+        height:150px;
+        width: 90%;
+        margin-top: 60px;
+    }
+
+    #nico2p{
+        width: 300px;
+    }
+
+    #dev_img {
+        width: 300px;
+        height: 200px;
+    }
+
+    #os{
+        position: relative;
+        left:230px;
+        top:365px;
+    }
+
+    #cube {
+        position: relative;
+        left:110px;
+        top:410px;
+    }
+
+    #chess{
+        position: relative;
+        left:35px;
+        top:370px;
+    }
+
+    #moto{
+        position: relative;
+        left:40px;
+        top:380px;
+
+    }
+
+    #title_table {
+        width: 200px;
+    }
+
+    #action_table {
+        width: 150px;
+    }
+
+    .img_project {
+        display: none;
+    }
+
+    #img_table {
+        display: none;
+    }
+
+    #login_page {
+        width: 200px;
+        margin-bottom: 50px;
+    }
+
+
 }

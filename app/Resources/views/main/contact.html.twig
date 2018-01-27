@@ -7,7 +7,16 @@
 
         <h1>Contact</h1>
 
+    {% for message in app.flashes('notice') %}
+        <div class="flash-notice">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+
         <div class="row">
+
+
 
             <div id="form_email" class="well block_grey">
 

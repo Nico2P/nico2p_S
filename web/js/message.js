@@ -1,4 +1,4 @@
-let serveurUrl = "http://localhost:8001";
+let serveurUrl = "http://nico2p.com";
 
 // Crée et renvoie un élément DOM affichant les données d'un message
 // Le paramètre message est un objet JS représentant un message
@@ -125,7 +125,6 @@ ajouterMessageElt.addEventListener("click", function () {
         setTimeout(function () {
             p.removeChild(infoElt);
         }, 2000);
-        alert("Votre gentil message va être enregistré et vous allez être redirigé(e) sur la page d'accueil !");
 
 
         let form_data = new FormData(document.getElementById('ajaxForm'));
