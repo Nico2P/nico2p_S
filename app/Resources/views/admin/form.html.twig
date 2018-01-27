@@ -1,4 +1,4 @@
-<div class="well">
+<div class="well block_grey">
     {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
 
     {# Les erreurs générales du formulaire. #}
@@ -15,7 +15,7 @@
     {{ form_row(form.description) }}
     {{ form_row(form.image) }}
 
-    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+    {{ form_widget(form.save, {'attr': {'class': 'btn btn-danger'}}) }}
 
     {# Génération automatique des champs pas encore écrits.
        Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
@@ -24,4 +24,9 @@
 
     {# Fermeture de la balise <form> du formulaire HTML #}
     {{ form_end(form) }}
+    <div id="btn_back">
+        <a href="{{ path('admin') }}">
+            <span class="btn btn-info">Retour Administration</span>
+        </a>
+    </div>
 </div>

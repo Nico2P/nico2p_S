@@ -39,6 +39,14 @@ class MainController extends Controller
     }
 
     /**
+     * @Route("/more" , name="moreinfo")
+     */
+    public function InfoAction()
+    {
+        return $this->render('main/more.html.twig');
+    }
+
+    /**
      * @Route("/contact" , name="contact")
      */
     public function contactAction(Request $request)
@@ -47,15 +55,25 @@ class MainController extends Controller
         $form   = $this->get('form.factory')->create(PostType::class, $post);
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
 
-
+            /*
             $mailerName = $this->getParameter('mailer_user');
             $mailerPassword = $this->getParameter('mailer_password');
-            $transport = (new \Swift_SmtpTransport('smtp.gmail.com', 465, 'SSL'))
+
+            $transport = (new \Swift_SmtpTransport)
+                ->setHost('auth.smtp.1and1.fr')
+                ->setPort(465)
+                ->setEncryption('SSL')
+                ->setAuthMode('login')
+                ->setTimeout(30)
                 ->setUsername($mailerName)
                 ->setPassword($mailerPassword)
             ;
-
             $mailer = new \Swift_Mailer($transport);
+            */
+
+            $transport = \Swift_MailTransport::newInstance();
+
+            $mailer = \Swift_Mailer::newInstance($transport);
 
             $mail = (new \Swift_Message('Message de ' . $post->getAuthor()))
                 ->setFrom($post->getEmail())
@@ -65,7 +83,6 @@ class MainController extends Controller
             ;
 
             $mailer->send($mail);
-
 
             $request->getSession()->getFlashBag()->add('notice', 'Message bien envoyé.');
 
@@ -103,9 +120,6 @@ class MainController extends Controller
 
 
         }
-
-
-
         return $this->render('main/message.html.twig');
     }
 
@@ -128,6 +142,12 @@ class MainController extends Controller
         }
 
         return new JsonResponse($commentary_list);
+
+
+
+        //return $this->render('main/commentary.html.twig', array(
+        //    'commentary_list' => $commentary_list
+        //));
     }
 
 

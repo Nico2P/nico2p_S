@@ -24,9 +24,9 @@ function creerElementMessage(message) {
 
     // Ajout des lignes dans le block
     let divMessageElt = document.createElement("div");
-    divMessageElt.style.borderRadius = "30px";
-    divMessageElt.style.backgroundColor = "grey";
-    divMessageElt.classList.add("message");
+    divMessageElt.style.borderRadius = "10px";
+    divMessageElt.style.backgroundColor = "#17a2b8";
+    divMessageElt.classList.add("message", "text-center");
     divMessageElt.appendChild(ligneMessageElt);
     divMessageElt.appendChild(ligneAuteurElt);
 
@@ -130,17 +130,6 @@ ajouterMessageElt.addEventListener("click", function () {
 
         let form_data = new FormData(document.getElementById('ajaxForm'));
         form_data.append("label", "WEBUPLOAD");
-        $.ajax({
-            url: "localhost:8001/message",
-            type: "POST",
-            data: form_data,
-            processData: false,
-            contentType: false
-        }).done(function (data) {
-            console.log(data);
-        });
-
-        return false;
     });
 
 

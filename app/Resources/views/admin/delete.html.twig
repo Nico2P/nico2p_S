@@ -7,6 +7,8 @@
 
 {% block body %}
 
+    <div class="block_grey" id="delete_comfirm">
+
 
 
     {% if project is defined %}
@@ -19,9 +21,8 @@
 
     {# On met l'id de l'annonce dans la route de l'action du formulaire #}
     <form action="{{ path('project_delete', { 'id': project.id })}}" method="post">
-        <a href="{{ path('projects') }}" class="btn btn-default">
-            <i class="glyphicon glyphicon-chevron-left"></i>
-            Retour aux projets
+        <a href="{{ path('admin') }}">
+            <span class="btn btn-info">Retour Administration</span>
         </a>
         {# Ici j'ai écrit le bouton de soumission à la main #}
         <input type="submit" value="Supprimer" class="btn btn-danger" />
@@ -41,9 +42,8 @@
             Etes-vous certain de vouloir supprimer le message de "{{ commentary.author }}" ?
         </p>
         <form action="{{ path('commentary_delete', { 'id': commentary.id })}}" method="post">
-            <a href="{{ path('admin') }}" class="btn btn-default">
-                <i class="glyphicon glyphicon-chevron-left"></i>
-                Retour
+            <a href="{{ path('admin') }}">
+                <span class=" btn btn-info">Retour Administration</span>
             </a>
             {# Ici j'ai écrit le bouton de soumission à la main #}
             <input type="submit" value="Supprimer" class="btn btn-danger" />
@@ -51,5 +51,7 @@
             {{ form_rest(form) }}
         </form>
     {% endif %}
+
+    </div>
 
 {% endblock %}

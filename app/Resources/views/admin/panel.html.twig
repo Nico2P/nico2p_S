@@ -15,11 +15,7 @@
     </div>
 
 
-    <div id="btn_ajout">
-        <a href="/admin/projects/add" class="btn btn-info btn-lg">
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Ajouter un projet
-        </a>
-    </div>
+
 
 
     <h2 class="text-center">Message / Avis :</h2>
@@ -37,17 +33,20 @@
                 <td class="auteur_com"><p>{{ commentary.author }}</p></td>
                 <td class="contenu_com"><p>{{ commentary.content }}</p></td>
                 <td class="btn-tab action_com">
-                    <a href="{{ path('commentary_delete', { 'id': commentary.id }) }}" class="btn btn-info btn-lg"><i class="fa fa-check" aria-hidden="true" method="post"></i>Supprimer le message</a>
+                    <a href="{{ path('commentary_delete', { 'id': commentary.id }) }}" class="btn btn-danger"><i class="fa fa-check" aria-hidden="true" method="post"></i>Supprimer le message</a>
                 </td>
             </tr>
             {%  endfor %}
         </table>
     </div>
 
-
-    <hr/>
-
     <h2 class="text-center">Liste des projets :</h2>
+
+    <div id="btn_ajout">
+        <a href="/admin/projects/add" class="btn btn-info btn-lg">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Ajouter un projet
+        </a>
+    </div>
     <div class="table-responsive block_grey">
         <table class="table">
             <tr>
@@ -68,10 +67,10 @@
                 {% endif %}
 
                 <td class="btn-tab">
-                    <a href="{{ path('project_edit', { 'id': project.id }) }}"  class="btn btn-info btn-lg">
+                    <a href="{{ path('project_edit', { 'id': project.id }) }}"  class="btn btn-info">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modifier
                     </a>
-                    <a href="{{ path('project_delete', { 'id': project.id }) }}" class="btn btn-info btn-lg">
+                    <a href="{{ path('project_delete', { 'id': project.id }) }}" class="btn btn-danger">
                     <i class="fa fa-trash" aria-hidden="true"></i> Supprimer
                     </a>
                 </td>
