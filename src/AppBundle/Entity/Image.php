@@ -10,6 +10,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
     /**
@@ -42,6 +43,7 @@ class Image
 
     /**
      * @var UploadedFile
+     * @Assert\File( mimeTypes = {"image/*"})
      */
     private $file;
     // On ajoute cet attribut pour y stocker le nom du fichier temporairement

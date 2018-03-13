@@ -17,7 +17,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-
 class MainController extends Controller
 {
 
@@ -48,51 +47,54 @@ class MainController extends Controller
 
     /**
      * @Route("/contact" , name="contact")
+     * @Method({"GET", "POST"})
      */
     public function contactAction(Request $request)
     {
         $post = new Post();
         $form   = $this->get('form.factory')->create(PostType::class, $post);
-        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
 
-            /*
-            $mailerName = $this->getParameter('mailer_user');
-            $mailerPassword = $this->getParameter('mailer_password');
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
 
-            $transport = (new \Swift_SmtpTransport)
-                ->setHost('auth.smtp.1and1.fr')
-                ->setPort(465)
-                ->setEncryption('SSL')
-                ->setAuthMode('login')
-                ->setTimeout(30)
-                ->setUsername($mailerName)
-                ->setPassword($mailerPassword)
-            ;
-            $mailer = new \Swift_Mailer($transport);
-            */
 
+            // VIA SERVICE
+
+            $name = $request->get('post_author');
+            $email = $request->get('post_email');
+            $message = $request->get('post_content');
+            $datas =   ['name'=>$name, 'email'=>$email, 'message'=>$message];
+            $this->get('app.send_mail')->sendContactMail($datas);
+
+            $request->getSession()->getFlashBag()->add('notice', 'Message bien envoyé.');
+
+            return $this->redirectToRoute('homepage');
+
+
+            // SANS SERVICE
+/*
             $transport = \Swift_MailTransport::newInstance();
-
             $mailer = \Swift_Mailer::newInstance($transport);
-
             $mail = (new \Swift_Message('Message de ' . $post->getAuthor()))
                 ->setFrom($post->getEmail())
                 ->setTo('contact@nico2p.com')
                 ->setDate($post->getDate()->format('Y-m-d H:i:s'))
                 ->setBody($post->getContent())
             ;
-
             $mailer->send($mail);
-
             $request->getSession()->getFlashBag()->add('notice', 'Message bien envoyé.');
-
             return $this->redirectToRoute('homepage');
+*/
 
         }
+
         return $this->render('main/contact.html.twig', array(
             'form' => $form->createView(),
-        ));
+
+            ));
+
     }
+
+
 
 
 
