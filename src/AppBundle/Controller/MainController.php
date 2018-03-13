@@ -67,7 +67,8 @@ class MainController extends Controller
 
             $request->getSession()->getFlashBag()->add('notice', 'Message bien envoyé.');
 
-            return $this->redirectToRoute('homepage');
+            return $this->redirectToRoute('contact');
+
 
 
             // SANS SERVICE
@@ -82,7 +83,7 @@ class MainController extends Controller
             ;
             $mailer->send($mail);
             $request->getSession()->getFlashBag()->add('notice', 'Message bien envoyé.');
-            return $this->redirectToRoute('homepage');
+            return $this->redirectToRoute('contact');
 */
 
         }
