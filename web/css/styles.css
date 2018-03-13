@@ -491,6 +491,11 @@ body {
     margin: auto;
 }
 
+#gitlogo {
+    width: 50px;
+    height: 50px;
+}
+
 
 /* Customize container */
 @media (min-width: 768px) {
@@ -628,7 +633,11 @@ body {
         width: 150px;
     }
 
-    .img_project {
+    #url_table {
+        width: 50px;
+    }
+
+    td.img_project {
         display: none;
     }
 
